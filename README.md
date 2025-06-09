@@ -57,7 +57,7 @@
     }
     datalist {
       background: black;
-      color: white;
+      color: red;
     }
   </style>
 </head>
