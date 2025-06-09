@@ -277,9 +277,9 @@
     naam: "Nio",
     geslacht: "Man",
     woonplaats: ["Duisburg"],
-    hobby: ["Judo"],
+    hobby: ["Jiujitsu"],
     verjaardag: "27/07",
-    schoolrichting: "Natuutwetenschappen",
+    schoolrichting: "Natuurwetenschappen",
     hints: [
       "Hij komt met de fiets naar school",
       "Hij heeft een lief",
