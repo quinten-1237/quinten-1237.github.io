@@ -103,7 +103,7 @@
       "Hij is niet zo groot.",
       "Hij is aan alles algerisch."
     ],
-    afbeelding: "Maxime.jpg"
+    afbeelding: "Maxime.jpg.jpg"
   },
   {
     naam: "Dennis",
@@ -117,7 +117,7 @@
       "Hij zit graag achter een scherm.",
       "Hij heeft 3 katten."
     ],
-    afbeelding: "Dennis.jpg"
+    afbeelding: "Dennis.jpg.jpg"
   },
   {
     naam: "Quinten",
@@ -131,7 +131,7 @@
       "Hij tackelt graag op de ...",
       "Hij houdt van jagen."
     ],
-    afbeelding: "Quinten.jpg"
+    afbeelding: "Quinten.jpg.jpg"
   },
   {
     naam: "Alexandre",
@@ -145,7 +145,7 @@
       "Hij is te nonchalante.",
       "Hij was/is ros."
     ],
-    afbeelding: "Alex.jpg"
+    afbeelding: "Alex.jpg.jpg"
   },
   {
     naam: "Lou",
@@ -159,7 +159,7 @@
       "Hij wordt vereerd in een cult",
       "Hij draagt een bril"
     ],
-    afbeelding: "Lou.jpg"
+    afbeelding: "Lou.jpg.jpg"
   },
   {
     naam: "Quinten.U.F",
@@ -173,7 +173,7 @@
       "Zijn huis is een plaats waar iedereen zicht thuis voelt",
       "Hij heeft twee huisdieren"
     ],
-    afbeelding: "Quinte.jpg"
+    afbeelding: "Quinte.jpg.jpg"
   },
   {
     naam: "Milhane",
@@ -187,7 +187,7 @@
       "Hij is de lieve variante van zijn soort",
       "Hij heeft een broer",
     ],
-    afbeelding: "Milhane.jpg"
+    afbeelding: "Milhane.jpg.jpg"
   },
   {
     naam: "Miro",
@@ -201,7 +201,7 @@
       "Zonder L",
       "Hij heeft een broer",
     ],
-    afbeelding: "Miro.jpg"
+    afbeelding: "Miro.jpg.jpg"
   },
   {
     naam: "Milo",
@@ -215,7 +215,7 @@
       "Naast iemand anders red zijn studie richting",
       "Lust geen kaas",
     ],
-    afbeelding: "Milo.jpg"
+    afbeelding: "Milo.jpg.jpg"
   },
   {
     naam: "Hodaka",
@@ -229,7 +229,7 @@
       "Is hij gay?",
       "Houdt van konten aanraken",
     ],
-    afbeelding: "Hodaka.jpg"
+    afbeelding: "Hodaka.jpg.jpg"
   },
   {
     naam: "Noah",
@@ -243,7 +243,7 @@
       "Hij helpt mensen met eet problemen",
       "Hij is rijk",
     ],
-    afbeelding: "Noah.jpg"
+    afbeelding: "Noah.jpg.jpg"
   },
   {
     naam: "Xander",
@@ -257,7 +257,7 @@
       "Eten is zijn leven",
       "Hij is al blijven zitten",
     ],
-    afbeelding: "Xander.jpg"
+    afbeelding: "Xander.jpg.jpg"
   },
   {
     naam: "Aymane",
@@ -271,7 +271,7 @@
       "Hij loopt elk jaar wel met krukken",
       "Hij lacht met zijn eigen grapjes",
     ],
-    afbeelding: "Aymane.jpg"
+    afbeelding: "Aymane.jpg.jpg"
   },
       {
     naam: "Nio",
@@ -285,7 +285,7 @@
       "Hij heeft een lief",
       "Hij is vrij lang",
     ],
-    afbeelding: "Nio.jpg"
+    afbeelding: "Nio.jpg.jpg"
   },
       {
     naam: "Lennox",
@@ -299,7 +299,7 @@
       "Hij komt met de fiets naar school.",
       "Duitsland is zijn tweede thuis wel",
     ],
-    afbeelding: "Lennox.jpg"
+    afbeelding: "Lennox.jpg.jpg"
   },
       {
     naam: "Finn",
@@ -313,7 +313,7 @@
       "Hij komt met de fiets naar school",
       "Hij deed voetbal bij moorsel",
     ],
-    afbeelding: "Finn.jpg"
+    afbeelding: "Finn.jpg.jpg"
   },
       {
     naam: "Max",
@@ -327,7 +327,7 @@
       "Is een jaar hoger",
       "Zijn kapper is dood",
     ],
-    afbeelding: "Max.jpg"
+    afbeelding: "Max.jpg.jpg"
   },
       {
     naam: "Robin",
@@ -341,7 +341,7 @@
       "Heeft een lief",
       "Is vrij klein",
     ],
-    afbeelding: "Robin.jpg"
+    afbeelding: "Robin.jpg.jpg"
   },
       {
     naam: "Fares",
@@ -355,7 +355,7 @@
       "Hij weet wel veel over pc's",
       "Hij zit op de KSA",
     ],
-    afbeelding: "Fares.jpg"
+    afbeelding: "Fares.jpg.jpg"
   },
       {
     naam: "Bram",
@@ -369,7 +369,7 @@
       "Hij komt met de fiets/bus naar school",
       "Hij heeft een slecht woord in discord gedropt",
     ],
-    afbeelding: "Bram.jpg"
+    afbeelding: "Bram.jpg.jpg"
   },
       {
     naam: "Robbe",
@@ -383,7 +383,7 @@
       "Hij zat op het KAT maar is getranferd",
       "Hij heeft het lef om op zijn mama te roepen",
     ],
-    afbeelding: "Robbe.jpg"
+    afbeelding: "Robbe.jpg.jpg"
   },
     ];
 
