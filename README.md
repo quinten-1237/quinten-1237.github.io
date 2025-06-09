@@ -262,7 +262,7 @@
   {
     naam: "Aymane",
     geslacht: "Man",
-    woonplaats: ["Overijsen"],
+    woonplaats: ["Overijse"],
     hobby: ["Gym"],
     verjaardag: "17/01",
     schoolrichting: "Natuurwetenschappen",
@@ -333,7 +333,7 @@
     naam: "Robin",
     geslacht: "Man",
     woonplaats: ["Hoeilaart"],
-    hobby: ["Gamen"],
+    hobby: ["Gamen" , "lopen"],
     verjaardag: "27/11",
     schoolrichting: "Natuurwetenschappen",
     hints: [
