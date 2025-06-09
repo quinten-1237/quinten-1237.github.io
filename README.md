@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
@@ -235,7 +235,7 @@
     naam: "Noah",
     geslacht: "Man",
     woonplaats: "Neerrijsen",
-    hobby: "Geen",
+    hobby: "Gym",
     verjaardag: "28/10",
     schoolrichting: "Economie",
     hints: [
@@ -263,7 +263,7 @@
     naam: "Aymane",
     geslacht: "Man",
     woonplaats: "Overijsen",
-    hobby: "Geen",
+    hobby: "Gym",
     verjaardag: "17/01",
     schoolrichting: "Natuurwetenschappen",
     hints: [
