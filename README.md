@@ -375,7 +375,7 @@
     naam: "Robbe",
     geslacht: "Man",
     woonplaats: ["Duisburg"],
-    hobby: ["parcour", "jeugdbeweging"],
+    hobby: ["parcour", "jeugdbeweging" , "Thai box"],
     verjaardag: "18/07",
     schoolrichting: "grafische technieken",
     hints: [
