@@ -70,7 +70,7 @@
   <datalist id="nameList"></datalist>
   <button onclick="checkGuess()">Check</button>
 
-  <div class="hint" id="hintText">Tip verschijnt na 2, 3 en 5 pogingen</div>
+  <div class="hint" id="hintText">Tip verschijnt na 5, 6 en 8 pogingen</div>
   <img id="personImage" src="" alt="Foto van de persoon">
   <br>
   <button onclick="herstartSpel()" style="margin-top: 20px;">🔄 Opnieuw spelen</button>
