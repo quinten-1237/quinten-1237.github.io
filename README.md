@@ -212,7 +212,7 @@
     schoolrichting: "Latijn",
     hints: [
       "Raar gebouwd",
-      "Naast iemand anders red zijn studie richting",
+      "Naast iemand anders, red hij zijn studie richting",
       "Lust geen kaas",
     ],
     afbeelding: "Milo.jpg.jpg"
