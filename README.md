@@ -70,7 +70,7 @@
   <datalist id="nameList"></datalist>
   <button onclick="checkGuess()">Check</button>
 
-  <div class="hint" id="hintText">Tip verschijnt na 5, 6 en 8 pogingen</div>
+  <div class="hint" id="hintText">Tip verschijnt na  4, 5 en 7 pogingen</div>
   <img id="personImage" src="" alt="Foto van de persoon">
   <br>
   <button onclick="herstartSpel()" style="margin-top: 20px;">🔄 Opnieuw spelen</button>
@@ -579,11 +579,11 @@
 
     function geefHint() {
       const hintText = document.getElementById("hintText");
-      if (pogingen === 5) {
+      if (pogingen === 4) {
         hintText.textContent = `Hint 1: ${doelPersoon.hints[0]}`;
-      } else if (pogingen === 6) {
+      } else if (pogingen === 5) {
         hintText.textContent = `Hint 2: ${doelPersoon.hints[1]}`;
-      } else if (pogingen === 8) {
+      } else if (pogingen === 7) {
         hintText.textContent = `Laatste Hint: ${doelPersoon.hints[2]}`;
       }
     }
