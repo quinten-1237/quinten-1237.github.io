@@ -22,7 +22,7 @@
       padding: 10px;
     }
     th {
-      background: #222;
+      background: #333;
     }
     .green {
       background-color: #4CAF50;
