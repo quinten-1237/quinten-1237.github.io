@@ -357,6 +357,34 @@
     ],
     afbeelding: "Fares.jpg"
   },
+      {
+    naam: "Bram",
+    geslacht: "Man",
+    woonplaats: ["Kortenberg" , "Tervuren"],
+    hobby: ["jeugdbeweging"],
+    verjaardag: "11/02",
+    schoolrichting: "Natuurwetenschappen",
+    hints: [
+      "Hij speelde voetbal",
+      "Hij komt met de fiets/bus naar school",
+      "Hij heeft een slecht woord in discord gedropt",
+    ],
+    afbeelding: "Bram.jpg"
+  },
+      {
+    naam: "Robbe",
+    geslacht: "Man",
+    woonplaats: ["Duisburg"],
+    hobby: ["parcour", "jeugdbeweging"],
+    verjaardag: "18/07",
+    schoolrichting: "grafische technieken",
+    hints: [
+      "Hij zit op de KSA",
+      "Hij zat op het KAT maar is getranferd",
+      "Hij heeft het lef om op zijn mama te roepen",
+    ],
+    afbeelding: "Robbe.jpg"
+  },
     ];
 
     let doelPersoon = personen[Math.floor(Math.random() * personen.length)];
