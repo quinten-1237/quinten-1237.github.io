@@ -56,8 +56,8 @@
       cursor: pointer;
     }
     datalist {
-      background: white;
-      color: black;
+      background: black;
+      color: white;
     }
   </style>
 </head>
