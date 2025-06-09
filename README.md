@@ -390,25 +390,27 @@
       return matrix[b.length][a.length];
     }
 
-    function vergelijkEigenschap(gegokt, echt) {
-  const normalize = val => val.toString().toLowerCase().trim();
+  function vergelijkEigenschap(gegokt, echt) {
+  const naarArray = val => Array.isArray(val) ? val : val.split("/").map(s => s.trim());
+  const normalize = str => str.toLowerCase().trim();
 
-  const gegoktNorm = normalize(gegokt);
-  const echtWaarde = Array.isArray(echt) ? echt.map(normalize) : [normalize(echt)];
+  const gegoktArray = naarArray(gegokt).map(normalize);
+  const echtArray = naarArray(echt).map(normalize);
 
-  if (echtWaarde.includes(gegoktNorm)) {
+  // Volledige match
+  if (gegoktArray.length === echtArray.length &&
+      gegoktArray.every(g => echtArray.includes(g))) {
     return "green";
   }
 
-  // Kijk of het deels matcht
-  for (const val of echtWaarde) {
-    if (val.includes(gegoktNorm) || levenshtein(gegoktNorm, val) <= 2) {
-      return "orange";
-    }
-  }
+  // Gedeeltelijke match
+  const match = gegoktArray.some(g => 
+    echtArray.some(e => e.includes(g) || levenshtein(g, e) <= 2)
+  );
 
-  return "red";
+  return match ? "orange" : "red";
 }
+
 
 
     function checkGuess() {
