@@ -104,6 +104,62 @@
       "Hij is aan alles algerisch."
     ],
     afbeelding: "Maxime.jpg.jpg"
+   },
+   {
+    naam: "Ferdia",
+    geslacht: "Man",
+    woonplaats: ["Tervuren"],
+    hobby: ["Fotograaf"],
+    verjaardag: "21/06",
+    schoolrichting: "Natuurwetenschappen",
+    hints: [
+      "heeft een zus",
+      "Raar gebouwd",
+      "Een lange nek"
+    ],
+    afbeelding: "Ferdia.jpg.jpg"
+  },
+      {
+    naam: "Mateo",
+    geslacht: "Man",
+    woonplaats: ["Moorsel"],
+    hobby: ["Jeugdbeweging"],
+    verjaardag: "09/09",
+    schoolrichting: "Natuurwetenschappen",
+    hints: [
+      "heeft een zus",
+      "Rare geluiden",
+      "Legendarische bijnaam (P***)"
+    ],
+    afbeelding: "Mateo.jpg.jpg"
+  },
+       {
+    naam: "Nico",
+    geslacht: "Man",
+    woonplaats: ["Tervuren"],
+    hobby: ["Jeugdbeweging"],
+    verjaardag: "23/11",
+    schoolrichting: "Humane",
+    hints: [
+      "Kaas",
+      "Heeft een bril",
+      "Tweelings broer"
+    ],
+    afbeelding: "Nico.jpg.jpg"
+  },
+  {
+    naam: "Paulussen",
+    geslacht: "Man",
+    woonplaats: ["Antwerpen"],
+    hobby: ["Rare video's maken"],
+    verjaardag: "00/00",
+    schoolrichting: "Aarderijkskunde",
+    hints: [
+      "Koffiegeur",
+      "Raar kapsel",
+      "The goat in meerkeuzen examen"
+    ],
+    afbeelding: "Paulussen.jpg.jpg"
   },
   {
     naam: "Dennis",
