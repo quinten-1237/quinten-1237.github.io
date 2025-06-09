@@ -150,7 +150,7 @@
   {
     naam: "Paulussen",
     geslacht: "Man",
-    woonplaats: ["Antwerpen"],
+    woonplaats: ["Leuven"],
     hobby: ["Rare video's maken"],
     verjaardag: "00/00",
     schoolrichting: "Aarderijkskunde",
@@ -291,7 +291,7 @@
     naam: "Noah",
     geslacht: "Man",
     woonplaats: ["Neerrijsen"],
-    hobby: ["Gym"],
+    hobby: ["Gym" , "gamen"],
     verjaardag: "28/10",
     schoolrichting: "Economie",
     hints: [
@@ -319,7 +319,7 @@
     naam: "Aymane",
     geslacht: "Man",
     woonplaats: ["Overijse"],
-    hobby: ["Gym"],
+    hobby: ["Gym" , " gamen"],
     verjaardag: "17/01",
     schoolrichting: "Natuurwetenschappen",
     hints: [
