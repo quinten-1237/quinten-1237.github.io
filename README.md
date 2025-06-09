@@ -519,7 +519,7 @@
       );
 
       rij.innerHTML = `
-        <td>${gevonden.naam}</td>
+        <td class="${gevonden.naam.toLowerCase() === doelPersoon.naam.toLowerCase() ? 'green' : 'red'}">${gevonden.naam}</td>
         ${eigenschappen.map((eig, i) => `
           <td class="${kleuren[i]}">${gevonden[eig]}</td>
         `).join("")}
