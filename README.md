@@ -94,8 +94,8 @@
         {
     naam: "Maxime",
     geslacht: "Man",
-    woonplaats: "Zaventem",
-    hobby: "Geen",
+    woonplaats: ["Zaventem"],
+    hobby: ["Geen"],
     verjaardag: "07/09",
     schoolrichting: "Economie",
     hints: [
@@ -108,8 +108,8 @@
   {
     naam: "Dennis",
     geslacht: "Man",
-    woonplaats: "Duisburg",
-    hobby: "Gamen/ jeugdbeweging",
+    woonplaats: ["Duisburg"],
+    hobby: ["Gamen", "jeugdbeweging"],
     verjaardag: "27/07",
     schoolrichting: "Economie",
     hints: [
@@ -122,8 +122,8 @@
   {
     naam: "Quinten",
     geslacht: "Man",
-    woonplaats: "Moorsel",
-    hobby: "Voetballen",
+    woonplaats: ["Moorsel"],
+    hobby: ["Voetballen" , "jagen"],
     verjaardag: "07/12",
     schoolrichting: "Economie",
     hints: [
@@ -136,8 +136,8 @@
   {
     naam: "Alexandre",
     geslacht: "Man",
-    woonplaats: "Zaventem",
-    hobby: "Voetballen",
+    woonplaats: ["Zaventem"],
+    hobby: ["Voetballen"],
     verjaardag: "01/06",
     schoolrichting: "Natuurwetenschappen",
     hints: [
@@ -150,8 +150,8 @@
   {
     naam: "Lou",
     geslacht: "Man",
-    woonplaats: "Hoeilaart",
-    hobby: "Voetballen",
+    woonplaats: ["Hoeilaart"],
+    hobby: ["Voetballen"],
     verjaardag: "19/02",
     schoolrichting: "Natuurwetenschappen",
     hints: [
@@ -164,8 +164,8 @@
   {
     naam: "Quinten.U.F",
     geslacht: "Man",
-    woonplaats: "Tervuren",
-    hobby: "Voetballen/ jeugdbeweging",
+    woonplaats: ["Tervuren"],
+    hobby: ["Voetballen","jeugdbeweging"],
     verjaardag: "31/07",
     schoolrichting: "Natuurwetenschappen",
     hints: [
@@ -178,8 +178,8 @@
   {
     naam: "Milhane",
     geslacht: "Man",
-    woonplaats: "Tervuren/Laken",
-    hobby: "jeugdbeweging",
+    woonplaats: ["Tervuren" , "Laken"],
+    hobby: ["jeugdbeweging"],
     verjaardag: "03/07",
     schoolrichting: "Natuurwetenschappen",
     hints: [
@@ -192,8 +192,8 @@
   {
     naam: "Miro",
     geslacht: "Man",
-    woonplaats: "Kortenberg",
-    hobby: "voetballen",
+    woonplaats: ["Kortenberg"],
+    hobby: ["voetballen"],
     verjaardag: "10/12",
     schoolrichting: "Natuurwetenschappen",
     hints: [
@@ -206,8 +206,8 @@
   {
     naam: "Milo",
     geslacht: "Man",
-    woonplaats: "Kortenberg",
-    hobby: "Geen",
+    woonplaats: ["Kortenberg"],
+    hobby: ["Gamen"],
     verjaardag: "16/09",
     schoolrichting: "Latijn",
     hints: [
@@ -220,8 +220,8 @@
   {
     naam: "Hodaka",
     geslacht: "Man",
-    woonplaats: "Zaventem",
-    hobby: "Judo",
+    woonplaats: ["Zaventem"],
+    hobby: ["Judo"],
     verjaardag: "15/06",
     schoolrichting: "Economie",
     hints: [
@@ -234,8 +234,8 @@
   {
     naam: "Noah",
     geslacht: "Man",
-    woonplaats: "Neerrijsen",
-    hobby: "Gym",
+    woonplaats: ["Neerrijsen"],
+    hobby: ["Gym"],
     verjaardag: "28/10",
     schoolrichting: "Economie",
     hints: [
@@ -248,8 +248,8 @@
   {
     naam: "Xander",
     geslacht: "Man",
-    woonplaats: "Zaventem",
-    hobby: "jeugdbeweging",
+    woonplaats: ["Zaventem"],
+    hobby: ["jeugdbeweging"],
     verjaardag: "05/07",
     schoolrichting: "Economie",
     hints: [
@@ -262,8 +262,8 @@
   {
     naam: "Aymane",
     geslacht: "Man",
-    woonplaats: "Overijsen",
-    hobby: "Gym",
+    woonplaats: ["Overijsen"],
+    hobby: ["Gym"],
     verjaardag: "17/01",
     schoolrichting: "Natuurwetenschappen",
     hints: [
@@ -272,6 +272,90 @@
       "Hij lacht met zijn eigen grapjes",
     ],
     afbeelding: "Aymane.jpg"
+  },
+      {
+    naam: "Nio",
+    geslacht: "Man",
+    woonplaats: ["Duisburg"],
+    hobby: ["Judo"],
+    verjaardag: "27/07",
+    schoolrichting: "Natuutwetenschappen",
+    hints: [
+      "Hij komt met de fiets naar school",
+      "Hij heeft een lief",
+      "Hij is vrij lang",
+    ],
+    afbeelding: "Nio.jpg"
+  },
+      {
+    naam: "Lennox",
+    geslacht: "Man",
+    woonplaats: ["Moorsel"],
+    hobby: ["Voetballen" , "Handbal"],
+    verjaardag: "05/06",
+    schoolrichting: "Natuurwetenschappen",
+    hints: [
+      "Hij kan wel zesty zijn",
+      "Hij komt met de fiets naar school.",
+      "Duitsland is zijn tweede thuis wel",
+    ],
+    afbeelding: "Lennox.jpg"
+  },
+      {
+    naam: "Finn",
+    geslacht: "Man",
+    woonplaats: ["Moorsel"],
+    hobby: ["Padel" , "hockey"],
+    verjaardag: "20/02",
+    schoolrichting: "economie",
+    hints: [
+      "Hij doet padel",
+      "Hij komt met de fiets naar school",
+      "Hij deed voetbal bij moorsel",
+    ],
+    afbeelding: "Finn.jpg"
+  },
+      {
+    naam: "Max",
+    geslacht: "Man",
+    woonplaats: ["Moorsel"],
+    hobby: ["Voetballen" , "golf"],
+    verjaardag: "05/01",
+    schoolrichting: "economie",
+    hints: [
+      "Speelt golf",
+      "Is een jaar hoger",
+      "Zijn kapper is dood",
+    ],
+    afbeelding: "Max.jpg"
+  },
+      {
+    naam: "Robin",
+    geslacht: "Man",
+    woonplaats: ["Hoeilaart"],
+    hobby: ["Gamen"],
+    verjaardag: "27/11",
+    schoolrichting: "Natuurwetenschappen",
+    hints: [
+      "Is blijven zitten",
+      "Heeft een lief",
+      "Is vrij klein",
+    ],
+    afbeelding: "Robin.jpg"
+  },
+      {
+    naam: "Fares",
+    geslacht: "Man",
+    woonplaats: ["Tervuren"],
+    hobby: ["gamen", "jeugdbeweging"],
+    verjaardag: "11/09",
+    schoolrichting: "Natuurwetenschappen",
+    hints: [
+      "Doet hij aan bombarderen?",
+      "Hij weet wel veel over pc's",
+      "Hij zit op de KSA",
+    ],
+    afbeelding: "Fares.jpg"
   },
     ];
 
@@ -307,14 +391,25 @@
     }
 
     function vergelijkEigenschap(gegokt, echt) {
-      if (gegokt.toLowerCase() === echt.toLowerCase()) {
-        return "green";
-      } else if (echt.toLowerCase().includes(gegokt.toLowerCase()) || levenshtein(gegokt.toLowerCase(), echt.toLowerCase()) <= 2) {
-        return "orange";
-      } else {
-        return "red";
-      }
+  const normalize = val => val.toString().toLowerCase().trim();
+
+  const gegoktNorm = normalize(gegokt);
+  const echtWaarde = Array.isArray(echt) ? echt.map(normalize) : [normalize(echt)];
+
+  if (echtWaarde.includes(gegoktNorm)) {
+    return "green";
+  }
+
+  // Kijk of het deels matcht
+  for (const val of echtWaarde) {
+    if (val.includes(gegoktNorm) || levenshtein(gegoktNorm, val) <= 2) {
+      return "orange";
     }
+  }
+
+  return "red";
+}
+
 
     function checkGuess() {
       const input = document.getElementById("guessInput").value.trim();
