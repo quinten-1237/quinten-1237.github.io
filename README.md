@@ -91,6 +91,20 @@
 
   <script>
     const personen = [
+       {
+    naam: "Billy",
+    geslacht: "Man",
+    woonplaats: ["Tervuren"],
+    hobby: ["Rugby"],
+    verjaardag: "13/01",
+    schoolrichting: "latijn",
+    hints: [
+      "Heeft een lief",
+      "Loopt graag zonder broek rond",
+      "is pas sinds midden van het 4de studie jaar op het kat"
+    ],
+    afbeelding: "Billy.jpg.jpg"
+   },
       {
     naam: "Moriau",
     geslacht: "Vrouw",
