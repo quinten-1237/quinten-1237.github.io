@@ -91,6 +91,34 @@
 
   <script>
     const personen = [
+      {
+    naam: "Moriau",
+    geslacht: "Vrouw",
+    woonplaats: ["Tervuren"],
+    hobby: ["Geen"],
+    verjaardag: "00/00",
+    schoolrichting: "Zedeleer",
+    hints: [
+      "Roept graag op eerste jaartjes",
+      "Zedeleer",
+      "Geeft les"
+    ],
+    afbeelding: "Moriau.jpg.jpg"
+   },
+      {
+    naam: "Pontinha",
+    geslacht: "Vrouw",
+    woonplaats: ["Laken"],
+    hobby: ["Geen"],
+    verjaardag: "00/00",
+    schoolrichting: "PO",
+    hints: [
+      "Kan niet zo goed nederlands",
+      "Cr7",
+      "Portugees"
+    ],
+    afbeelding: "Pontinha.jpg.jpg"
+   },
         {
     naam: "Maxime",
     geslacht: "Man",
@@ -537,13 +565,12 @@
 
     function geefHint() {
       const hintText = document.getElementById("hintText");
-      if (pogingen === 2) {
+      if (pogingen === 5) {
         hintText.textContent = `Hint 1: ${doelPersoon.hints[0]}`;
-      } else if (pogingen === 3) {
+      } else if (pogingen === 6) {
         hintText.textContent = `Hint 2: ${doelPersoon.hints[1]}`;
-      } else if (pogingen === 5) {
+      } else if (pogingen === 8) {
         hintText.textContent = `Laatste Hint: ${doelPersoon.hints[2]}`;
-        toonAfbeelding();
       }
     }
 
