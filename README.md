@@ -473,7 +473,7 @@
     naam: "Robbe",
     geslacht: "Man",
     woonplaats: ["Duisburg"],
-    hobby: ["parcour", "jeugdbeweging" , "Thai box"],
+    hobby: ["parcour", "jeugdbeweging" , "Thaikwando"],
     verjaardag: "18/07",
     schoolrichting: "grafische technieken",
     hints: [
@@ -482,6 +482,20 @@
       "Hij heeft het lef om op zijn mama te roepen",
     ],
     afbeelding: "Robbe.jpg.jpg"
+  },    
+      {
+    naam: "Rube",
+    geslacht: "Man",
+    woonplaats: ["Tervuren"],
+    hobby: ["Voetbal", "Lopen" , "fappen"],
+    verjaardag: "11/10",
+    schoolrichting: "Economie",
+    hints: [
+      "Hij heeft een zus",
+      "Hij heeft een hete zus ",
+      "Hij speelt bij tervuren ",
+    ],
+    afbeelding: "Rube.jpg.jpg"
   },
     ];
 
