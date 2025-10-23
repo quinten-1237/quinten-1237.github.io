@@ -105,6 +105,62 @@
     ],
     afbeelding: "Billy.jpg.jpg"
    },
+     {
+    naam: "Buyelen",
+    geslacht: "Man",
+    woonplaats: ["Leuven"],
+    hobby: ["Muziek"],
+    verjaardag: "00/00",
+    schoolrichting: "Geschiedenis",
+    hints: [
+      "Muziek maker",
+      "Union fan",
+      "Fan van koffie"
+    ],
+    afbeelding: "buyelen.jpg"
+   },
+        {
+    naam: "Vranxc",
+    geslacht: "Vrouw",
+    woonplaats: ["Antwerpen"],
+    hobby: ["Lezen"],
+    verjaardag: "00/00",
+    schoolrichting: "Nederlands",
+    hints: [
+      "Nederlands",
+      "Bril",
+      "Dochters en zonen"
+    ],
+    afbeelding: "vrancx.jpg"
+   },
+          {
+    naam: "eliese",
+    geslacht: "Vrouw",
+    woonplaats: ["Meerbeek"],
+    hobby: ["Lopen"],
+    verjaardag: "00/00",
+    schoolrichting: "Natuurwetenschappen",
+    hints: [
+      "Heeft een hond",
+      "Lopen",
+      "Burn out"
+    ],
+    afbeelding: "eliese.jpg"
+   },
+          {
+    naam: "Van gijsel",
+    geslacht: "Vrouw",
+    woonplaats: ["Leuven"],
+    hobby: ["Geen"],
+    verjaardag: "00/00",
+    schoolrichting: "Olc",
+    hints: [
+      "Heeft een dochter",
+      "Olc",
+      "Vroeger wiskunde leerkracht"
+    ],
+    afbeelding: "gijsel.jpg"
+   },
       {
     naam: "Moriau",
     geslacht: "Vrouw",
@@ -291,7 +347,7 @@
     naam: "Miro",
     geslacht: "Man",
     woonplaats: ["Kortenberg"],
-    hobby: ["voetballen"],
+    hobby: ["Voetballen"],
     verjaardag: "10/12",
     schoolrichting: "Economie",
     hints: [
@@ -307,7 +363,7 @@
     woonplaats: ["Kortenberg"],
     hobby: ["Gamen"],
     verjaardag: "16/09",
-    schoolrichting: "Economie",
+    schoolrichting: "Latijn",
     hints: [
       "Raar gebouwd",
       "Naast iemand anders, red hij zijn studie richting",
@@ -487,7 +543,7 @@
     naam: "Rube",
     geslacht: "Man",
     woonplaats: ["Tervuren"],
-    hobby: ["Voetbal", "Lopen" , "fappen"],
+    hobby: ["Voetballen", "Lopen" , "fappen"],
     verjaardag: "11/10",
     schoolrichting: "Economie",
     hints: [
