@@ -502,7 +502,7 @@
     geslacht: "Vrouw",
     woonplaats: ["Duisburg"],
     hobby: ["Hockey"],
-    verjaardag: "03/12
+    verjaardag: "03/12",
     schoolrichting: "Economie",
     hints: [
       "Het heeft een broer",
