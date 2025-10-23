@@ -508,9 +508,10 @@
       "Het heeft een broer",
       "Pasieve drinker",
       "Het heeft een kind (gertie)",
-    ],
-    afbeelding: "Schermafbeelding 2025-10-23 104636.jpg"
-    ];
+       ],
+          afbeelding: "Schermafbeelding 2025-10-23 104636.jpg"
+    },
+      ];
 
     let doelPersoon = personen[Math.floor(Math.random() * personen.length)];
     let pogingen = 0;
