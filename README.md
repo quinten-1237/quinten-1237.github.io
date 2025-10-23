@@ -106,7 +106,7 @@
     afbeelding: "Billy.jpg.jpg"
    },
      {
-    naam: "Buyelen",
+    naam: "Buyle",
     geslacht: "Man",
     woonplaats: ["Leuven"],
     hobby: ["Muziek"],
@@ -134,7 +134,7 @@
     afbeelding: "vrancx.jpg"
    },
           {
-    naam: "eliese",
+    naam: "Elise",
     geslacht: "Vrouw",
     woonplaats: ["Meerbeek"],
     hobby: ["Lopen"],
