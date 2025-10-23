@@ -99,7 +99,7 @@
     verjaardag: "13/01",
     schoolrichting: "latijn",
     hints: [
-      "Heeft een lief",
+      "Unieke sport",
       "Loopt graag zonder broek rond",
       "is pas sinds midden van het 4de studie jaar op het kat"
     ],
@@ -239,7 +239,7 @@
     verjaardag: "01/06",
     schoolrichting: "Natuurwetenschappen",
     hints: [
-      "hij heeft een lief.",
+      "Waal.",
       "Hij is te nonchalante.",
       "Hij was/is ros."
     ],
@@ -267,8 +267,8 @@
     verjaardag: "31/07",
     schoolrichting: "Natuurwetenschappen",
     hints: [
-      "Zij grapjes zijn niet grappig",
-      "Zijn huis is een plaats waar iedereen zicht thuis voelt",
+      "Zij grapjes zijn grappig",
+      "Korfbal",
       "Hij heeft twee huisdieren"
     ],
     afbeelding: "Quinte.jpg.jpg"
@@ -293,7 +293,7 @@
     woonplaats: ["Kortenberg"],
     hobby: ["voetballen"],
     verjaardag: "10/12",
-    schoolrichting: "Natuurwetenschappen",
+    schoolrichting: "Economie",
     hints: [
       "Hij staat altijd wel klaar voor een kapsalon",
       "Zonder L",
@@ -307,7 +307,7 @@
     woonplaats: ["Kortenberg"],
     hobby: ["Gamen"],
     verjaardag: "16/09",
-    schoolrichting: "Latijn",
+    schoolrichting: "Economie",
     hints: [
       "Raar gebouwd",
       "Naast iemand anders, red hij zijn studie richting",
@@ -324,7 +324,7 @@
     schoolrichting: "Economie",
     hints: [
       "Raar gebouwd",
-      "Is hij gay?",
+      "Ziet niet veel",
       "Houdt van konten aanraken",
     ],
     afbeelding: "Hodaka.jpg.jpg"
@@ -379,8 +379,8 @@
     verjaardag: "27/07",
     schoolrichting: "Natuurwetenschappen",
     hints: [
-      "Hij komt met de fiets naar school",
-      "Hij heeft een lief",
+      "Hij heeft een broer",
+      "Hij is uniek ",
       "Hij is vrij lang",
     ],
     afbeelding: "Nio.jpg.jpg"
@@ -405,7 +405,7 @@
     woonplaats: ["Moorsel"],
     hobby: ["Padel" , "hockey"],
     verjaardag: "20/02",
-    schoolrichting: "economie",
+    schoolrichting: "sport",
     hints: [
       "Hij doet padel",
       "Hij komt met de fiets naar school",
