@@ -262,7 +262,7 @@
   {
     naam: "Quinten.U.F",
     geslacht: "Man",
-    woonplaats: ["Tervuren"],
+    woonplaats: ["Wezembeek", "Vrebos "],
     hobby: ["Voetballen","jeugdbeweging"],
     verjaardag: "31/07",
     schoolrichting: "Natuurwetenschappen",
@@ -497,6 +497,19 @@
     ],
     afbeelding: "Rube.jpg.jpg"
   },
+      {
+    naam: "Roos",
+    geslacht: "Vrouw",
+    woonplaats: ["Duisburg"],
+    hobby: ["Hockey"],
+    verjaardag: "03/12
+    schoolrichting: "Economie",
+    hints: [
+      "Het heeft een broer",
+      "Pasieve drinker",
+      "Het heeft een kind (gertie)",
+    ],
+    afbeelding: ""
     ];
 
     let doelPersoon = personen[Math.floor(Math.random() * personen.length)];
