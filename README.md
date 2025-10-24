@@ -281,9 +281,9 @@
     verjaardag: "07/12",
     schoolrichting: "Economie",
     hints: [
-      "hij houdt drinken.",
+      "Das observeren ",
       "Hij tackelt graag op de ...",
-      "Hij houdt van jagen."
+      "Hij staat wel klaar voor jenever."
     ],
     afbeelding: "Quinten.jpg.jpg"
   },
