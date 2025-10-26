@@ -135,9 +135,9 @@
 
 <div id="gameContainer" style="display:none;">
   <h1>🔍 Raad de Persoon</h1>
+   <div id="timer">⏱️ Tijd: 0:00</div>
   <p>Typ een naam en ontdek via eigenschappen wie het is!</p>
-  <div id="timer">⏱️ Tijd: 0:00</div>
-
+ 
   <input id="guessInput" list="nameList" placeholder="Voer een naam in...">
   <datalist id="nameList"></datalist>
   <button onclick="checkGuess()">Check</button>
@@ -191,12 +191,14 @@ function updateTimer() {
   const minuten = Math.floor(diff / 60);
   const seconden = diff % 60;
   document.getElementById("timer").textContent =
-    `⏱️ Tijd: ${minuten}:${seconden.toString().padStart(2, '0')}`;
+    `⏱️ Tijd: ${minuten}:${seconden.toString().padStart(2, "0")}`;
 }
 
 function stopTimer() {
   clearInterval(timerInterval);
+  return Math.floor((new Date() - startTime) / 1000);
 }
+
 
     const personen = [
        {
@@ -765,28 +767,26 @@ function stopTimer() {
       
       if (gevonden.naam.toLowerCase() === doelPersoon.naam.toLowerCase()) {
   const hintText = document.getElementById("hintText");
-  
-  stopTimer();
-const eindTijd = new Date();
-const tijdVerschil = Math.floor((eindTijd - startTime) / 1000);
-const minuten = Math.floor(tijdVerschil / 60);
-const seconden = tijdVerschil % 60;
-document.getElementById("hintText").textContent += ` ⏱️ (${minuten}:${seconden.toString().padStart(2,'0')}) in ${pogingen} pogingen!`;
+  const totaleTijd = stopTimer();
+  const minuten = Math.floor(totaleTijd / 60);
+  const seconden = totaleTijd % 60;
 
-
- 
+  // Fade-out
   hintText.classList.add("fade");
 
   setTimeout(() => {
-    hintText.textContent = `✅ Juist! Het was ${doelPersoon.naam}`;
-    hintText.classList.remove("fade"); 
+    hintText.textContent = `✅ Juist! Het was ${doelPersoon.naam}! 
+🎯 Je deed er ${pogingen} pogingen over en ${minuten}:${seconden
+      .toString()
+      .padStart(2, "0")} minuten.`;
+    hintText.classList.remove("fade");
   }, 300);
 
   toonAfbeelding();
 } else {
   geefHint();
 }
-    }
+  }
 
    function geefHint() {
   const hintText = document.getElementById("hintText");
