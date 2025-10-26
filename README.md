@@ -60,6 +60,50 @@
       margin-left: 10px;
       cursor: pointer;
     }
+    /* Startscherm-stijl */
+#startScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: radial-gradient(circle at center, #222 0%, #000 100%);
+  color: white;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+#startScreen h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+#startScreen button {
+  padding: 12px 25px;
+  font-size: 18px;
+  background-color: #ffeb3b;
+  color: #111;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+#startScreen button:hover {
+  background-color: #fdd835;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#timer {
+  font-size: 18px;
+  color: #ffeb3b;
+  margin-top: 10px;
+}
     datalist {
       background: black;
       color: red;
@@ -82,9 +126,17 @@
   </style>
 </head>
 <body>
+<div id="startScreen">
+  <h1>👤 Welkom bij <span style="color:#ffeb3b;">Wie is het?</span></h1>
+  <p>Gemaakt door <strong>Quinten</strong></p>
+  <p style="margin-top: 20px;">Test je kennis van de klas en probeer te raden wie het is!</p>
+  <button id="startButton">🎮 Start het spel</button>
+</div>
 
+<div id="gameContainer" style="display:none;">
   <h1>🔍 Raad de Persoon</h1>
   <p>Typ een naam en ontdek via eigenschappen wie het is!</p>
+  <div id="timer">⏱️ Tijd: 0:00</div>
 
   <input id="guessInput" list="nameList" placeholder="Voer een naam in...">
   <datalist id="nameList"></datalist>
@@ -108,8 +160,35 @@
     </thead>
     <tbody></tbody>
   </table>
-
+    </div>
   <script>
+    let startTime;
+let timerInterval;
+
+function startSpel() {
+  document.getElementById("startScreen").style.display = "none";
+  document.getElementById("gameContainer").style.display = "block";
+  startTimer();
+}
+
+function startTimer() {
+  startTime = new Date();
+  timerInterval = setInterval(updateTimer, 1000);
+}
+
+function updateTimer() {
+  const now = new Date();
+  const diff = Math.floor((now - startTime) / 1000);
+  const minuten = Math.floor(diff / 60);
+  const seconden = diff % 60;
+  document.getElementById("timer").textContent =
+    `⏱️ Tijd: ${minuten}:${seconden.toString().padStart(2, '0')}`;
+}
+
+function stopTimer() {
+  clearInterval(timerInterval);
+}
+
     const personen = [
        {
     naam: "Billy",
@@ -677,6 +756,14 @@
       
       if (gevonden.naam.toLowerCase() === doelPersoon.naam.toLowerCase()) {
   const hintText = document.getElementById("hintText");
+  
+  stopTimer();
+const eindTijd = new Date();
+const tijdVerschil = Math.floor((eindTijd - startTime) / 1000);
+const minuten = Math.floor(tijdVerschil / 60);
+const seconden = tijdVerschil % 60;
+document.getElementById("hintText").textContent += ` ⏱️ (${minuten}:${seconden.toString().padStart(2,'0')}) in ${pogingen} pogingen!`;
+
 
  
   hintText.classList.add("fade");
@@ -731,6 +818,9 @@ img.show {
     function herstartSpel() {
       location.reload();
     }
+    
+    document.getElementById("startButton").addEventListener("click", startSpel);
+
   </script>
 
 </body>
