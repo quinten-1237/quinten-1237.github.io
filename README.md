@@ -37,7 +37,12 @@
       margin-top: 15px;
       font-weight: bold;
       color: #ffeb3b;
-    }
+      transition: opacity 0.5s ease;
+  opacity: 1;
+}
+.hint.fade {
+  opacity: 0;
+}
     img {
       margin-top: 20px;
       max-width: 200px;
@@ -59,6 +64,21 @@
       background: black;
       color: red;
     }
+  datalist {
+    background: black;
+    color: red;
+  }
+      
+  tr {
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  tr.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
   </style>
 </head>
 <body>
@@ -652,30 +672,60 @@
       `;
 
       tbody.appendChild(rij);
-
+      
+      setTimeout(() => rij.classList.add("show"), 50);
+      
       if (gevonden.naam.toLowerCase() === doelPersoon.naam.toLowerCase()) {
-        document.getElementById("hintText").textContent = `✅ Juist! Het was ${doelPersoon.naam}`;
-        toonAfbeelding();
-      } else {
-        geefHint();
-      }
+  const hintText = document.getElementById("hintText");
+
+ 
+  hintText.classList.add("fade");
+
+  setTimeout(() => {
+    hintText.textContent = `✅ Juist! Het was ${doelPersoon.naam}`;
+    hintText.classList.remove("fade"); 
+  }, 300);
+
+  toonAfbeelding();
+} else {
+  geefHint();
+}
     }
 
-    function geefHint() {
-      const hintText = document.getElementById("hintText");
-      if (pogingen === 4) {
-        hintText.textContent = `Hint 1: ${doelPersoon.hints[0]}`;
-      } else if (pogingen === 5) {
-        hintText.textContent = `Hint 2: ${doelPersoon.hints[1]}`;
-      } else if (pogingen === 7) {
-        hintText.textContent = `Laatste Hint: ${doelPersoon.hints[2]}`;
-      }
+   function geefHint() {
+  const hintText = document.getElementById("hintText");
+
+  // Fade-out
+  hintText.classList.add("fade");
+
+  setTimeout(() => {
+    if (pogingen === 4) {
+      hintText.textContent = `Hint 1: ${doelPersoon.hints[0]}`;
+    } else if (pogingen === 5) {
+      hintText.textContent = `Hint 2: ${doelPersoon.hints[1]}`;
+    } else if (pogingen === 7) {
+      hintText.textContent = `Laatste Hint: ${doelPersoon.hints[2]}`;
     }
 
-    function toonAfbeelding() {
-      const img = document.getElementById("personImage");
-      img.src = doelPersoon.afbeelding;
-      img.style.display = "block";
+    // Fade-in
+    hintText.classList.remove("fade");
+  }, 300); 
+}
+    
+   img {
+  margin-top: 20px;
+  max-width: 200px;
+  border-radius: 10px;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.6s ease; /* <-- zorgt voor de fade-in */
+}
+
+img.show {
+  display: block;
+  opacity: 1;
+}
+
     }
 
     function herstartSpel() {
