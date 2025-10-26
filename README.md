@@ -679,17 +679,32 @@
     }
 
     // Functie om overeenkomsten te checken
-    function vergelijkEigenschap(gegokt, echt) {
-      const arr = v => Array.isArray(v) ? v : [v];
-      gegokt = arr(gegokt).map(x => x.toLowerCase());
-      echt = arr(echt).map(x => x.toLowerCase());
-      if (gegokt.some(g => echt.includes(g))) return "green";
-      if (gegokt.some(g => echt.some(e => e.includes(g)))) return "orange";
-      return "red";
-    }
+  function vergelijkEigenschap(gegokt, echt) {
+  // Zet beide waarden om naar arrays
+  const naarArray = val => Array.isArray(val) ? val : [val];
+  const normalize = str => str.toLowerCase().trim();
+
+  const gegoktArray = naarArray(gegokt).map(normalize);
+  const echtArray = naarArray(echt).map(normalize);
+
+  // Volledige match → alles juist
+  if (gegoktArray.length === echtArray.length &&
+      gegoktArray.every(g => echtArray.includes(g))) {
+    return "green";
+  }
+
+  // Gedeeltelijke match → minstens één juist
+  const gedeeltelijkeMatch = gegoktArray.some(g =>
+    echtArray.some(e => e.includes(g) || levenshtein(g, e) <= 2)
+  );
+
+  return gedeeltelijkeMatch ? "orange" : "red";
+}
+
 
     // Check de gok
     function checkGuess() {
+      const kleuren = eigenschappen.map(eig => vergelijkEigenschap(gevonden[eig], doelPersoon[eig]));
       const input = document.getElementById("guessInput").value.trim();
       if (!input) return;
       const gevonden = personen.find(p => p.naam.toLowerCase() === input.toLowerCase());
