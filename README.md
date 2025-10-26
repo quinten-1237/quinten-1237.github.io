@@ -10,6 +10,7 @@
       text-align: center;
       padding: 20px;
     }
+    /* Startscherm */
     #startScreen {
       display: flex;
       flex-direction: column;
@@ -22,7 +23,6 @@
     #startScreen h1 {
       font-size: 3em;
       color: #ffcc00;
-      margin-bottom: 10px;
     }
     #startScreen p {
       font-size: 1.2em;
@@ -44,7 +44,7 @@
       background-color: #ffdb4d;
       transform: scale(1.05);
     }
-    /* Fade-in animatie */
+    /* fade animatie */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
@@ -53,6 +53,11 @@
     #gameContainer {
       display: none;
       animation: fadeIn 1s ease-in;
+    }
+    #timer {
+      font-size: 1.1em;
+      color: #ffcc00;
+      margin-bottom: 10px;
     }
     table {
       width: 90%;
@@ -63,9 +68,7 @@
       border: 1px solid #333;
       padding: 10px;
     }
-    th {
-      background: #333;
-    }
+    th { background: #333; }
     .green { background-color: #4CAF50; }
     .orange { background-color: #FF9800; }
     .red { background-color: #F44336; }
@@ -73,12 +76,19 @@
       margin-top: 15px;
       font-weight: bold;
       color: #ffeb3b;
+      transition: opacity 0.3s ease;
     }
     img {
       margin-top: 20px;
       max-width: 200px;
       border-radius: 10px;
       display: none;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    img.show {
+      display: block;
+      opacity: 1;
     }
     input {
       padding: 10px;
@@ -93,16 +103,23 @@
       border-radius: 8px;
       transition: 0.2s;
     }
-    button:hover {
-      transform: scale(1.05);
+    button:hover { transform: scale(1.05); }
+    /* Leaderboard */
+    #leaderboard {
+      background: #222;
+      border-radius: 12px;
+      padding: 15px;
+      width: 80%;
+      margin: 30px auto;
     }
-    datalist {
-      background: black;
-      color: red;
-    }
+    #leaderboard h2 { color: #ffcc00; }
+    #leaderboard table { width: 100%; color: white; }
+    #leaderboard th { background: #333; }
+    #leaderboard td { border: 1px solid #444; padding: 8px; }
   </style>
 </head>
 <body>
+
   <!-- STARTSCHERM -->
   <div id="startScreen">
     <h1>🎯 Welkom bij "Wie is het?"</h1>
@@ -110,8 +127,10 @@
     <p>Gemaakt door Quinten 💻</p>
     <button id="startButton">Start het spel 🎮</button>
   </div>
-  <!-- SPELGEBIED -->
+
+  <!-- SPEL -->
   <div id="gameContainer">
+    <div id="timer">⏱️ Tijd: 0:00</div>
     <h1>🔍 Raad de Persoon</h1>
     <p>Typ een naam en ontdek via eigenschappen wie het is!</p>
     <input id="guessInput" list="nameList" placeholder="Voer een naam in...">
@@ -134,42 +153,20 @@
       </thead>
       <tbody></tbody>
     </table>
+    <div id="leaderboard">
+      <h2>🏆 Leaderboard</h2>
+      <table id="leaderboardTable">
+        <thead>
+          <tr><th>Naam</th><th>Pogingen</th><th>Tijd (s)</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
   </div>
-  <!-- SCRIPT -->
+
   <script>
-    // Eventlistener voor startknop
-    document.getElementById("startButton").addEventListener("click", startSpel);
-    function startSpel() {
-      document.getElementById("startScreen").style.display = "none";
-      document.getElementById("gameContainer").style.display = "block";
-    }
-    // De rest van je bestaande JavaScript code (personenlijst, checkGuess, hints, enz.)
-    // mag hieronder blijven staan zoals je al had.
-  </script>
-    let startTime;
-let timerInterval;
-
-function startSpel() {
-  document.getElementById("startScreen").style.display = "none";
-  document.getElementById("gameContainer").style.display = "block";
-  startTimer();
-}
-
-function startTimer() {
-  startTime = new Date();
-  timerInterval = setInterval(updateTimer, 1000);
-}
-
-function updateTimer() {
-  const now = new Date();
-  const diff = Math.floor((now - startTime) / 1000);
-  const minuten = Math.floor(diff / 60);
-  const seconden = diff % 60;
-  document.getElementById("timer").textContent =
-    `⏱️ Tijd: ${minuten}:${seconden.toString().padStart(2, "0")}`;
-}
     const personen = [
-  {
+      {
     naam: "Billy",
     geslacht: "Man",
     woonplaats: ["Tervuren"],
@@ -646,141 +643,121 @@ function updateTimer() {
     afbeelding: "Schermafbeelding 2025-10-23 104636.jpg"
   },
     ];
-    let doelPersoon = personen[Math.floor(Math.random() * personen.length)];
-    let pogingen = 0;
-    let hintIndex = 0;
-    let startTime;
-    let timerInterval;
-    // autocomplete lijst opbouwen
+
+    let doelPersoon, pogingen = 0, hintIndex = 0, startTime, timerInterval;
+
+    // Autocomplete
     const nameList = document.getElementById("nameList");
     personen.forEach(p => {
       const opt = document.createElement("option");
       opt.value = p.naam;
       nameList.appendChild(opt);
     });
-    function levenshtein(a, b) {
-      const matrix = Array.from({ length: b.length + 1 }, (_, i) =>
-        Array(a.length + 1).fill(0)
-      );
-      for (let i = 0; i <= b.length; i++) matrix[i][0] = i;
-      for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
-      for (let i = 1; i <= b.length; i++) {
-        for (let j = 1; j <= a.length; j++) {
-          matrix[i][j] = b[i - 1] === a[j - 1]
-            ? matrix[i - 1][j - 1]
-            : Math.min(
-                matrix[i - 1][j - 1] + 1,
-                matrix[i][j - 1] + 1,
-                matrix[i - 1][j] + 1
-              );
-        }
-      }
-      return matrix[b.length][a.length];
+
+    // Start scherm
+    document.getElementById("startButton").addEventListener("click", startSpel);
+    function startSpel() {
+      document.getElementById("startScreen").style.display = "none";
+      document.getElementById("gameContainer").style.display = "block";
+      doelPersoon = personen[Math.floor(Math.random() * personen.length)];
+      startTimer();
+      laadLeaderboard();
     }
 
-  function vergelijkEigenschap(gegokt, echt) {
-  const naarArray = val => Array.isArray(val) ? val : val.split("/").map(s => s.trim());
-  const normalize = str => str.toLowerCase().trim();
+    // Timer
+    function startTimer() {
+      startTime = new Date();
+      timerInterval = setInterval(() => {
+        const diff = Math.floor((new Date() - startTime) / 1000);
+        const min = Math.floor(diff / 60);
+        const sec = diff % 60;
+        document.getElementById("timer").textContent = `⏱️ Tijd: ${min}:${sec.toString().padStart(2, "0")}`;
+      }, 1000);
+    }
+    function stopTimer() {
+      clearInterval(timerInterval);
+      return Math.floor((new Date() - startTime) / 1000);
+    }
 
+    // Functie om overeenkomsten te checken
+    function vergelijkEigenschap(gegokt, echt) {
+      const arr = v => Array.isArray(v) ? v : [v];
+      gegokt = arr(gegokt).map(x => x.toLowerCase());
+      echt = arr(echt).map(x => x.toLowerCase());
+      if (gegokt.some(g => echt.includes(g))) return "green";
+      if (gegokt.some(g => echt.some(e => e.includes(g)))) return "orange";
+      return "red";
+    }
 
-  const gegoktArray = naarArray(gegokt).map(normalize);
-  const echtArray = naarArray(echt).map(normalize);
-  // Volledige match
-  if (gegoktArray.length === echtArray.length &&
-      gegoktArray.every(g => echtArray.includes(g))) {
-    return "green";
-  }
-
-  // Gedeeltelijke match
-  const match = gegoktArray.some(g => 
-    echtArray.some(e => e.includes(g) || levenshtein(g, e) <= 2)
-  );
-
-  return match ? "orange" : "red";
-}
+    // Check de gok
     function checkGuess() {
       const input = document.getElementById("guessInput").value.trim();
       if (!input) return;
       const gevonden = personen.find(p => p.naam.toLowerCase() === input.toLowerCase());
-      const tbody = document.querySelector("#guessTable tbody");
-      if (!gevonden) {
-        alert("Naam niet gevonden in lijst.");
-        return;
-      }
+      if (!gevonden) { alert("Naam niet gevonden."); return; }
+
       pogingen++;
-      const rij = document.createElement("tr");
+      const tbody = document.querySelector("#guessTable tbody");
       const eigenschappen = ["geslacht", "woonplaats", "hobby", "verjaardag", "schoolrichting"];
-      const kleuren = eigenschappen.map(eig =>
-        vergelijkEigenschap(gevonden[eig], doelPersoon[eig])
-      );
+      const kleuren = eigenschappen.map(e => vergelijkEigenschap(gevonden[e], doelPersoon[e]));
+
+      const rij = document.createElement("tr");
       rij.innerHTML = `
-        <td class="${gevonden.naam.toLowerCase() === doelPersoon.naam.toLowerCase() ? 'green' : 'red'}">${gevonden.naam}</td>
-        ${eigenschappen.map((eig, i) => `
-          <td class="${kleuren[i]}">${gevonden[eig]}</td>
-        `).join("")}
+        <td class="${gevonden.naam === doelPersoon.naam ? 'green' : 'red'}">${gevonden.naam}</td>
+        ${eigenschappen.map((eig, i) => `<td class="${kleuren[i]}">${gevonden[eig]}</td>`).join("")}
       `;
       tbody.appendChild(rij);
-      setTimeout(() => rij.classList.add("show"), 50);
-      if (gevonden.naam.toLowerCase() === doelPersoon.naam.toLowerCase()) {
-  const hintText = document.getElementById("hintText");
-  const totaleTijd = stopTimer();
-  const minuten = Math.floor(totaleTijd / 60);
-  const seconden = totaleTijd % 60;
 
-  function stopTimer() {
-      clearInterval(timerInterval);
-      return Math.floor((new Date() - startTime) / 1000);
+      if (gevonden.naam === doelPersoon.naam) {
+        const tijd = stopTimer();
+        const naam = prompt("🎉 Juist! Vul je naam in voor het leaderboard:");
+        if (naam) voegToeAanLeaderboard(naam, tijd);
+        toonAfbeelding();
+      } else {
+        geefHint();
+      }
     }
-  // Fade-out
-  hintText.classList.add("fade");
-  setTimeout(() => {
-    hintText.textContent = `✅ Juist! Het was ${doelPersoon.naam}! 
-🎯 Je deed er ${pogingen} pogingen over en ${minuten}:${seconden
-      .toString()
-      .padStart(2, "0")} minuten.`;
-    hintText.classList.remove("fade");
-  }, 300);
 
-  toonAfbeelding();
-} else {
-  geefHint();
-}
-  }
-   function geefHint() {
-  const hintText = document.getElementById("hintText");
+    function geefHint() {
+      const hintText = document.getElementById("hintText");
+      if ([4, 5, 7].includes(pogingen)) {
+        hintText.style.opacity = 0;
+        setTimeout(() => {
+          hintText.textContent = doelPersoon.hints[hintIndex++] || "Geen extra hints meer!";
+          hintText.style.opacity = 1;
+        }, 300);
+      }
+    }
 
-  // Fade-out
-  hintText.classList.add("fade");
+    function toonAfbeelding() {
+      const img = document.getElementById("personImage");
+      img.src = doelPersoon.afbeelding;
+      img.classList.add("show");
+    }
 
-  setTimeout(() => {
-    if (pogingen === 4) {
-      hintText.textContent = `Hint 1: ${doelPersoon.hints[0]}`;
-    } else if (pogingen === 5) {
-      hintText.textContent = `Hint 2: ${doelPersoon.hints[1]}`;
-    } else if (pogingen === 7) {
-      hintText.textContent = `Laatste Hint: ${doelPersoon.hints[2]}`;
+    function herstartSpel() { location.reload(); }
+
+    // Leaderboard
+    function laadLeaderboard() {
+      const data = JSON.parse(localStorage.getItem("leaderboard") || "[]");
+      const tbody = document.querySelector("#leaderboardTable tbody");
+      tbody.innerHTML = "";
+      data.sort((a, b) => a.time - b.time).slice(0, 5).forEach(d => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${d.name}</td><td>${d.attempts}</td><td>${d.time}</td>`;
+        tbody.appendChild(tr);
+      });
     }
-    // Fade-in
-    hintText.classList.remove("fade");
-  }, 300); 
-}   
-   img {
-  margin-top: 20px;
-  max-width: 200px;
-  border-radius: 10px;
-  display: none;
-  opacity: 0;
-  transition: opacity 0.6s ease; /* <-- zorgt voor de fade-in */
-}
-img.show {
-  display: block;
-  opacity: 1;
-}
+
+    function voegToeAanLeaderboard(name, time) {
+      const data = JSON.parse(localStorage.getItem("leaderboard") || "[]");
+      data.push({ name, attempts: pogingen, time });
+      localStorage.setItem("leaderboard", JSON.stringify(data));
+      laadLeaderboard();
     }
-    function herstartSpel() {
-      location.reload();
-    }
-    document.getElementById("startButton").addEventListener("click", startSpel);
   </script>
 </body>
 </html>
+
+ 
+
