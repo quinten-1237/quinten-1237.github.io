@@ -1,21 +1,63 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-
-  <title>Raad de Persoon</title>
+  <title>Wie is het? | Raad de Persoon</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background: #111;
-      color: White;
+      color: white;
       text-align: center;
       padding: 20px;
     }
+    #startScreen {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #1f1f1f, #2b2b2b);
+      animation: fadeIn 1.5s ease-in;
+    }
+    #startScreen h1 {
+      font-size: 3em;
+      color: #ffcc00;
+      margin-bottom: 10px;
+    }
+    #startScreen p {
+      font-size: 1.2em;
+      color: #ddd;
+      max-width: 600px;
+    }
+    #startButton {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #ffcc00;
+      color: #111;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    #startButton:hover {
+      background-color: #ffdb4d;
+      transform: scale(1.05);
+    }
+    /* Fade-in animatie */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Spelgedeelte */
+    #gameContainer {
+      display: none;
+      animation: fadeIn 1s ease-in;
+    }
     table {
       width: 90%;
-      margin: 0 auto;
+      margin: 20px auto;
       border-collapse: collapse;
-      margin-top: 20px;
     }
     th, td {
       border: 1px solid #333;
@@ -24,25 +66,14 @@
     th {
       background: #333;
     }
-    .green {
-      background-color: #4CAF50;
-    }
-    .orange {
-      background-color: #FF9800;
-    }
-    .red {
-      background-color: #F44336;
-    }
+    .green { background-color: #4CAF50; }
+    .orange { background-color: #FF9800; }
+    .red { background-color: #F44336; }
     .hint {
       margin-top: 15px;
       font-weight: bold;
       color: #ffeb3b;
-      transition: opacity 0.5s ease;
-  opacity: 1;
-}
-.hint.fade {
-  opacity: 0;
-}
+    }
     img {
       margin-top: 20px;
       max-width: 200px;
@@ -59,120 +90,62 @@
       font-size: 16px;
       margin-left: 10px;
       cursor: pointer;
+      border-radius: 8px;
+      transition: 0.2s;
     }
-    /* Startscherm-stijl */
-#startScreen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background: radial-gradient(circle at center, #222 0%, #000 100%);
-  color: white;
-  text-align: center;
-  animation: fadeIn 1s ease-in-out;
-}
-
-#startScreen h1 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
-}
-
-#startScreen button {
-  padding: 12px 25px;
-  font-size: 18px;
-  background-color: #ffeb3b;
-  color: #111;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: transform 0.2s, background-color 0.2s;
-}
-
-#startScreen button:hover {
-  background-color: #fdd835;
-  transform: scale(1.05);
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-#timer {
-  font-size: 18px;
-  color: #ffeb3b;
-  margin-top: 10px;
-}
+    button:hover {
+      transform: scale(1.05);
+    }
     datalist {
       background: black;
       color: red;
     }
-  datalist {
-    background: black;
-    color: red;
-  }
-      
-  tr {
-    opacity: 0;
-    transform: translateY(-5px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-
-  tr.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
   </style>
 </head>
 <body>
-<div id="startScreen">
-  <h1>👤 Welkom bij <span style="color:#ffeb3b;">Wie is het?</span></h1>
-  <p style="margin-top: 20px;">Test je kennis van je vrienden en probeer te raden wie het is!</p>
-  <button id="startButton">🎮 Start het spel</button>
+  <!-- STARTSCHERM -->
+  <div id="startScreen">
+    <h1>🎯 Welkom bij "Wie is het?"</h1>
+    <p>Test je kennis van je vrienden en probeer te raden wie het is!</p>
+    <p>Gemaakt door Quinten 💻</p>
+    <button id="startButton">Start het spel 🎮</button>
+  </div>
+  <!-- SPELGEBIED -->
+  <div id="gameContainer">
+    <h1>🔍 Raad de Persoon</h1>
+    <p>Typ een naam en ontdek via eigenschappen wie het is!</p>
+    <input id="guessInput" list="nameList" placeholder="Voer een naam in...">
+    <datalist id="nameList"></datalist>
+    <button onclick="checkGuess()">Check</button>
+    <div class="hint" id="hintText">Tip verschijnt na 4, 5 en 7 pogingen</div>
+    <img id="personImage" src="" alt="Foto van de persoon">
+    <br>
+    <button onclick="herstartSpel()" style="margin-top: 20px;">🔄 Opnieuw spelen</button>
+    <table id="guessTable">
+      <thead>
+        <tr>
+          <th>Naam</th>
+          <th>Geslacht</th>
+          <th>Woonplaats</th>
+          <th>Hobby</th>
+          <th>Verjaardag</th>
+          <th>Schoolrichting</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <!-- SCRIPT -->
   <script>
-  document.getElementById("startButton").addEventListener("click", startSpel);
-    </script>
-</div>
-
-<div id="gameContainer" style="display:none;">
-  <h1>🔍 Raad de Persoon</h1>
-   <div id="timer">⏱️ Tijd: 0:00</div>
-  <p>Typ een naam en ontdek via eigenschappen wie het is!</p>
- 
-  <input id="guessInput" list="nameList" placeholder="Voer een naam in...">
-  <datalist id="nameList"></datalist>
-  <button onclick="checkGuess()">Check</button>
-
-  <div class="hint" id="hintText">Tip verschijnt na  4, 5 en 7 pogingen</div>
-  <img id="personImage" src="" alt="Foto van de persoon">
-  <br>
-  <button onclick="herstartSpel()" style="margin-top: 20px;">🔄 Opnieuw spelen</button>
-
-  <table id="guessTable">
-    <thead>
-      <tr>
-        <th>Naam</th>
-        <th>Geslacht</th>
-        <th>Woonplaats</th>
-        <th>Hobby</th>
-        <th>Verjaardag</th>
-        <th>Schoolrichting</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-  <script>
+    // Eventlistener voor startknop
     document.getElementById("startButton").addEventListener("click", startSpel);
-    
     function startSpel() {
       document.getElementById("startScreen").style.display = "none";
       document.getElementById("gameContainer").style.display = "block";
-      startTimer();
     }
+    // De rest van je bestaande JavaScript code (personenlijst, checkGuess, hints, enz.)
+    // mag hieronder blijven staan zoals je al had.
   </script>
-    </div>
-  <script>
     let startTime;
 let timerInterval;
 
@@ -195,8 +168,6 @@ function updateTimer() {
   document.getElementById("timer").textContent =
     `⏱️ Tijd: ${minuten}:${seconden.toString().padStart(2, "0")}`;
 }
-
-
     const personen = [
   {
     naam: "Billy",
@@ -675,14 +646,11 @@ function updateTimer() {
     afbeelding: "Schermafbeelding 2025-10-23 104636.jpg"
   },
     ];
-
     let doelPersoon = personen[Math.floor(Math.random() * personen.length)];
-    
     let pogingen = 0;
     let hintIndex = 0;
     let startTime;
     let timerInterval;
-    
     // autocomplete lijst opbouwen
     const nameList = document.getElementById("nameList");
     personen.forEach(p => {
@@ -690,7 +658,6 @@ function updateTimer() {
       opt.value = p.naam;
       nameList.appendChild(opt);
     });
-
     function levenshtein(a, b) {
       const matrix = Array.from({ length: b.length + 1 }, (_, i) =>
         Array(a.length + 1).fill(0)
@@ -736,7 +703,6 @@ function updateTimer() {
       if (!input) return;
       const gevonden = personen.find(p => p.naam.toLowerCase() === input.toLowerCase());
       const tbody = document.querySelector("#guessTable tbody");
-
       if (!gevonden) {
         alert("Naam niet gevonden in lijst.");
         return;
@@ -747,18 +713,14 @@ function updateTimer() {
       const kleuren = eigenschappen.map(eig =>
         vergelijkEigenschap(gevonden[eig], doelPersoon[eig])
       );
-
       rij.innerHTML = `
         <td class="${gevonden.naam.toLowerCase() === doelPersoon.naam.toLowerCase() ? 'green' : 'red'}">${gevonden.naam}</td>
         ${eigenschappen.map((eig, i) => `
           <td class="${kleuren[i]}">${gevonden[eig]}</td>
         `).join("")}
       `;
-
       tbody.appendChild(rij);
-      
       setTimeout(() => rij.classList.add("show"), 50);
-      
       if (gevonden.naam.toLowerCase() === doelPersoon.naam.toLowerCase()) {
   const hintText = document.getElementById("hintText");
   const totaleTijd = stopTimer();
@@ -769,10 +731,8 @@ function updateTimer() {
       clearInterval(timerInterval);
       return Math.floor((new Date() - startTime) / 1000);
     }
-
   // Fade-out
   hintText.classList.add("fade");
-
   setTimeout(() => {
     hintText.textContent = `✅ Juist! Het was ${doelPersoon.naam}! 
 🎯 Je deed er ${pogingen} pogingen over en ${minuten}:${seconden
