@@ -128,7 +128,6 @@
 <body>
 <div id="startScreen">
   <h1>👤 Welkom bij <span style="color:#ffeb3b;">Wie is het?</span></h1>
-  <p>Gemaakt door <strong>Quinten</strong></p>
   <p style="margin-top: 20px;">Test je kennis van je vrienden en probeer te raden wie het is!</p>
   <button id="startButton">🎮 Start het spel</button>
   <script>
@@ -214,7 +213,7 @@ function updateTimer() {
     afbeelding: "Billy.jpg.jpg"
   },
   {
-    naam: "Buyle",
+    naam: "Mathias Buyle",
     geslacht: "Man",
     woonplaats: ["Leuven"],
     hobby: ["Muziek"],
@@ -228,7 +227,7 @@ function updateTimer() {
     afbeelding: "buyelen.jpg"
   },
   {
-    naam: "Vranxc",
+    naam: "Francesca Vranck",
     geslacht: "Vrouw",
     woonplaats: ["Antwerpen"],
     hobby: ["Lezen"],
@@ -242,7 +241,7 @@ function updateTimer() {
     afbeelding: "vrancx.jpg"
   },
   {
-    naam: "Elise",
+    naam: "Elise Eggerickx",
     geslacht: "Vrouw",
     woonplaats: ["Meerbeek"],
     hobby: ["Lopen"],
@@ -256,7 +255,7 @@ function updateTimer() {
     afbeelding: "eliese.jpg"
   },
   {
-    naam: "Van Gijsel",
+    naam: "Ingrid Van Gysel",
     geslacht: "Vrouw",
     woonplaats: ["Leuven"],
     hobby: ["Geen"],
@@ -270,7 +269,7 @@ function updateTimer() {
     afbeelding: "gijsel.jpg"
   },
   {
-    naam: "Moriau",
+    naam: "Kathleen Moriau",
     geslacht: "Vrouw",
     woonplaats: ["Tervuren"],
     hobby: ["Geen"],
@@ -284,7 +283,7 @@ function updateTimer() {
     afbeelding: "Moriau.jpg.jpg"
   },
   {
-    naam: "Pontinha",
+    naam: "Ana Pontinha",
     geslacht: "Vrouw",
     woonplaats: ["Laken"],
     hobby: ["Geen"],
