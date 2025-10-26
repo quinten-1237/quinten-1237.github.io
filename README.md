@@ -124,7 +124,6 @@
   <div id="startScreen">
     <h1>🎯 Welkom bij "Wie is het?"</h1>
     <p>Test je kennis van je vrienden en probeer te raden wie het is!</p>
-    <p>Gemaakt door Quinten 💻</p>
     <button id="startButton">Start het spel 🎮</button>
   </div>
 
