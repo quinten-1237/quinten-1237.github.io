@@ -129,7 +129,7 @@
 <div id="startScreen">
   <h1>👤 Welkom bij <span style="color:#ffeb3b;">Wie is het?</span></h1>
   <p>Gemaakt door <strong>Quinten</strong></p>
-  <p style="margin-top: 20px;">Test je kennis van de klas en probeer te raden wie het is!</p>
+  <p style="margin-top: 20px;">Test je kennis van je vrienden en probeer te raden wie het is!</p>
   <button id="startButton">🎮 Start het spel</button>
 </div>
 
@@ -160,6 +160,15 @@
     </thead>
     <tbody></tbody>
   </table>
+  <script>
+    document.getElementById("startButton").addEventListener("click", startSpel);
+    
+    function startSpel() {
+      document.getElementById("startScreen").style.display = "none";
+      document.getElementById("gameContainer").style.display = "block";
+      startTimer();
+    }
+  </script>
     </div>
   <script>
     let startTime;
