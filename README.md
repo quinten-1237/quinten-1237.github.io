@@ -164,10 +164,485 @@
 
   <script>
     const personen = [
-      { naam: "Elon Musk", hints: ["SpaceX", "Tesla", "Twitter"], afbeelding: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Elon_Musk_Royal_Society_%28crop2%29.jpg" },
-      { naam: "Taylor Swift", hints: ["Zangeres", "Pop", "Eras Tour"], afbeelding: "https://upload.wikimedia.org/wikipedia/commons/f/f2/Taylor_Swift_2_-_2019_by_Glenn_Francis.jpg" },
-      { naam: "Barack Obama", hints: ["President", "VS", "Michelle"], afbeelding: "https://upload.wikimedia.org/wikipedia/commons/8/8d/President_Barack_Obama.jpg" }
-    ];
+    const personen = [
+  {
+    naam: "Billy",
+    geslacht: "Man",
+    woonplaats: ["Tervuren"],
+    hobby: ["Rugby"],
+    verjaardag: "13/01",
+    schoolrichting: "Latijn",
+    hints: [
+      "Unieke sport",
+      "Loopt graag zonder broek rond",
+      "Is pas sinds midden van het 4de studiejaar op het KAT"
+    ],
+    afbeelding: "Billy.jpg.jpg"
+  },
+  {
+    naam: "Buyle",
+    geslacht: "Man",
+    woonplaats: ["Leuven"],
+    hobby: ["Muziek"],
+    verjaardag: "00/00",
+    schoolrichting: "Geschiedenis",
+    hints: [
+      "Muziekmaker",
+      "Union-fan",
+      "Fan van koffie"
+    ],
+    afbeelding: "buyelen.jpg"
+  },
+  {
+    naam: "Vranxc",
+    geslacht: "Vrouw",
+    woonplaats: ["Antwerpen"],
+    hobby: ["Lezen"],
+    verjaardag: "00/00",
+    schoolrichting: "Nederlands",
+    hints: [
+      "Nederlands",
+      "Bril",
+      "Dochters en zonen"
+    ],
+    afbeelding: "vrancx.jpg"
+  },
+  {
+    naam: "Elise",
+    geslacht: "Vrouw",
+    woonplaats: ["Meerbeek"],
+    hobby: ["Lopen"],
+    verjaardag: "00/00",
+    schoolrichting: "Natuurwetenschappen",
+    hints: [
+      "Heeft een hond",
+      "Lopen",
+      "Burn-out"
+    ],
+    afbeelding: "eliese.jpg"
+  },
+  {
+    naam: "Van Gijsel",
+    geslacht: "Vrouw",
+    woonplaats: ["Leuven"],
+    hobby: ["Geen"],
+    verjaardag: "00/00",
+    schoolrichting: "OLC",
+    hints: [
+      "Heeft een dochter",
+      "OLC",
+      "Vroeger wiskundeleerkracht"
+    ],
+    afbeelding: "gijsel.jpg"
+  },
+  {
+    naam: "Moriau",
+    geslacht: "Vrouw",
+    woonplaats: ["Tervuren"],
+    hobby: ["Geen"],
+    verjaardag: "00/00",
+    schoolrichting: "Zedeleer",
+    hints: [
+      "Roept graag op eerste jaartjes",
+      "Zedeleer",
+      "Geeft les"
+    ],
+    afbeelding: "Moriau.jpg.jpg"
+  },
+  {
+    naam: "Pontinha",
+    geslacht: "Vrouw",
+    woonplaats: ["Laken"],
+    hobby: ["Geen"],
+    verjaardag: "00/00",
+    schoolrichting: "PO",
+    hints: [
+      "Kan niet zo goed Nederlands",
+      "CR7",
+      "Portugees"
+    ],
+    afbeelding: "Pontinha.jpg.jpg"
+  },
+  {
+    naam: "Maxime",
+    geslacht: "Man",
+    woonplaats: ["Zaventem"],
+    hobby: ["Geen"],
+    verjaardag: "07/09",
+    schoolrichting: "Economie",
+    hints: [
+      "Houdt van gamen",
+      "Niet zo groot",
+      "Allergisch aan alles"
+    ],
+    afbeelding: "Maxime.jpg.jpg"
+  },
+  {
+    naam: "Ferdia",
+    geslacht: "Man",
+    woonplaats: ["Tervuren"],
+    hobby: ["Fotograaf"],
+    verjaardag: "21/06",
+    schoolrichting: "Natuurwetenschappen",
+    hints: [
+      "Heeft een zus",
+      "Raar gebouwd",
+      "Een lange nek"
+    ],
+    afbeelding: "Ferdia.jpg.jpg"
+  },
+  {
+    naam: "Mateo",
+    geslacht: "Man",
+    woonplaats: ["Moorsel"],
+    hobby: ["Jeugdbeweging"],
+    verjaardag: "09/09",
+    schoolrichting: "Natuurwetenschappen",
+    hints: [
+      "Heeft een zus",
+      "Maakt rare geluiden",
+      "Legendarische bijnaam (P***)"
+    ],
+    afbeelding: "Mateo.jpg.jpg"
+  },
+  {
+    naam: "Nico",
+    geslacht: "Man",
+    woonplaats: ["Tervuren"],
+    hobby: ["Jeugdbeweging"],
+    verjaardag: "23/11",
+    schoolrichting: "Humane",
+    hints: [
+      "Kaas",
+      "Heeft een bril",
+      "Tweelingsbroer"
+    ],
+    afbeelding: "Nico.jpg.jpg"
+  },
+  {
+    naam: "Paulussen",
+    geslacht: "Man",
+    woonplaats: ["Leuven"],
+    hobby: ["Rare video's maken"],
+    verjaardag: "00/00",
+    schoolrichting: "Aardrijkskunde",
+    hints: [
+      "Koffiegeur",
+      "Raar kapsel",
+      "The GOAT in meerkeuze-examens"
+    ],
+    afbeelding: "Paulussen.jpg.jpg"
+  },
+  {
+    naam: "Dennis",
+    geslacht: "Man",
+    woonplaats: ["Duisburg"],
+    hobby: ["Gamen", "Jeugdbeweging"],
+    verjaardag: "27/07",
+    schoolrichting: "Economie",
+    hints: [
+      "Hij is blond",
+      "Zit graag achter een scherm",
+      "Heeft 3 katten"
+    ],
+    afbeelding: "Dennis.jpg.jpg"
+  },
+  {
+    naam: "Quinten",
+    geslacht: "Man",
+    woonplaats: ["Moorsel"],
+    hobby: ["Voetballen", "Jagen"],
+    verjaardag: "07/12",
+    schoolrichting: "Economie",
+    hints: [
+      "Das observeren",
+      "Tackelt graag op de ...",
+      "Staat altijd klaar voor jenever"
+    ],
+    afbeelding: "Quinten.jpg.jpg"
+  },
+  {
+    naam: "Alexandre",
+    geslacht: "Man",
+    woonplaats: ["Zaventem"],
+    hobby: ["Voetballen"],
+    verjaardag: "01/06",
+    schoolrichting: "Natuurwetenschappen",
+    hints: [
+      "Waal",
+      "Te nonchalant",
+      "Was/is ros"
+    ],
+    afbeelding: "Alex.jpg.jpg"
+  },
+  {
+    naam: "Lou",
+    geslacht: "Man",
+    woonplaats: ["Hoeilaart"],
+    hobby: ["Voetballen"],
+    verjaardag: "19/02",
+    schoolrichting: "Natuurwetenschappen",
+    hints: [
+      "Hij is blond",
+      "Wordt vereerd in een cult",
+      "Draagt een bril"
+    ],
+    afbeelding: "Lou.jpg.jpg"
+  },
+  {
+    naam: "Quinten.U.F",
+    geslacht: "Man",
+    woonplaats: ["Wezembeek", "Vrebos"],
+    hobby: ["Voetballen", "Jeugdbeweging"],
+    verjaardag: "31/07",
+    schoolrichting: "Natuurwetenschappen",
+    hints: [
+      "Zijn grapjes zijn grappig",
+      "Korfbal",
+      "Heeft twee huisdieren"
+    ],
+    afbeelding: "Quinte.jpg.jpg"
+  },
+  {
+    naam: "Milhane",
+    geslacht: "Man",
+    woonplaats: ["Tervuren", "Laken"],
+    hobby: ["Jeugdbeweging"],
+    verjaardag: "03/07",
+    schoolrichting: "Natuurwetenschappen",
+    hints: [
+      "Woont op twee verschillende plaatsen",
+      "Lieve variant van zijn soort",
+      "Heeft een broer"
+    ],
+    afbeelding: "Milhane.jpg.jpg"
+  },
+  {
+    naam: "Miro",
+    geslacht: "Man",
+    woonplaats: ["Kortenberg"],
+    hobby: ["Voetballen"],
+    verjaardag: "10/12",
+    schoolrichting: "Economie",
+    hints: [
+      "Altijd klaar voor een kapsalon",
+      "Zonder L",
+      "Heeft een broer"
+    ],
+    afbeelding: "Miro.jpg.jpg"
+  },
+  {
+    naam: "Milo",
+    geslacht: "Man",
+    woonplaats: ["Kortenberg"],
+    hobby: ["Gamen"],
+    verjaardag: "16/09",
+    schoolrichting: "Latijn",
+    hints: [
+      "Raar gebouwd",
+      "Redt zijn studierichting naast iemand anders",
+      "Lust geen kaas"
+    ],
+    afbeelding: "Milo.jpg.jpg"
+  },
+  {
+    naam: "Hodaka",
+    geslacht: "Man",
+    woonplaats: ["Zaventem"],
+    hobby: ["Judo"],
+    verjaardag: "15/06",
+    schoolrichting: "Economie",
+    hints: [
+      "Raar gebouwd",
+      "Ziet niet veel",
+      "Houdt van konten aanraken"
+    ],
+    afbeelding: "Hodaka.jpg.jpg"
+  },
+  {
+    naam: "Noah",
+    geslacht: "Man",
+    woonplaats: ["Neerijse"],
+    hobby: ["Gym", "Gamen"],
+    verjaardag: "28/10",
+    schoolrichting: "Economie",
+    hints: [
+      "Valorant is zijn leven",
+      "Helpt mensen met eetproblemen",
+      "Hij is rijk"
+    ],
+    afbeelding: "Noah.jpg.jpg"
+  },
+  {
+    naam: "Xander",
+    geslacht: "Man",
+    woonplaats: ["Zaventem"],
+    hobby: ["Jeugdbeweging"],
+    verjaardag: "05/07",
+    schoolrichting: "Economie",
+    hints: [
+      "Drinkt graag",
+      "Eten is zijn leven",
+      "Is al blijven zitten"
+    ],
+    afbeelding: "Xander.jpg.jpg"
+  },
+  {
+    naam: "Aymane",
+    geslacht: "Man",
+    woonplaats: ["Overijse"],
+    hobby: ["Gym", "Gamen"],
+    verjaardag: "17/01",
+    schoolrichting: "Natuurwetenschappen",
+    hints: [
+      "Nederlands is niet zijn moedertaal",
+      "Loopt elk jaar met krukken",
+      "Lacht met zijn eigen grapjes"
+    ],
+    afbeelding: "Aymane.jpg.jpg"
+  },
+  {
+    naam: "Nio",
+    geslacht: "Man",
+    woonplaats: ["Duisburg"],
+    hobby: ["Jiujitsu"],
+    verjaardag: "27/07",
+    schoolrichting: "Natuurwetenschappen",
+    hints: [
+      "Heeft een broer",
+      "Hij is uniek",
+      "Hij is vrij lang"
+    ],
+    afbeelding: "Nio.jpg.jpg"
+  },
+  {
+    naam: "Lennox",
+    geslacht: "Man",
+    woonplaats: ["Moorsel"],
+    hobby: ["Voetballen", "Handbal"],
+    verjaardag: "05/06",
+    schoolrichting: "Natuurwetenschappen",
+    hints: [
+      "Kan wel zesty zijn",
+      "Komt met de fiets naar school",
+      "Duitsland is zijn tweede thuis"
+    ],
+    afbeelding: "Lennox.jpg.jpg"
+  },
+  {
+    naam: "Finn",
+    geslacht: "Man",
+    woonplaats: ["Moorsel"],
+    hobby: ["Padel", "Hockey"],
+    verjaardag: "20/02",
+    schoolrichting: "Sport",
+    hints: [
+      "Doet padel",
+      "Komt met de fiets naar school",
+      "Deed voetbal bij Moorsel"
+    ],
+    afbeelding: "Finn.jpg.jpg"
+  },
+  {
+    naam: "Max",
+    geslacht: "Man",
+    woonplaats: ["Moorsel"],
+    hobby: ["Voetballen", "Golf"],
+    verjaardag: "05/01",
+    schoolrichting: "Economie",
+    hints: [
+      "Speelt golf",
+      "Is een jaar hoger",
+      "Zijn kapper is dood"
+    ],
+    afbeelding: "Max.jpg.jpg"
+  },
+  {
+    naam: "Robin",
+    geslacht: "Man",
+    woonplaats: ["Hoeilaart"],
+    hobby: ["Gamen", "Lopen"],
+    verjaardag: "27/11",
+    schoolrichting: "Natuurwetenschappen",
+    hints: [
+      "Is blijven zitten",
+      "Heeft een lief",
+      "Is vrij klein"
+    ],
+    afbeelding: "Robin.jpg.jpg"
+  },
+  {
+    naam: "Fares",
+    geslacht: "Man",
+    woonplaats: ["Tervuren"],
+    hobby: ["Gamen", "Jeugdbeweging"],
+    verjaardag: "11/09",
+    schoolrichting: "Natuurwetenschappen",
+    hints: [
+      "Doet hij aan bombarderen?",
+      "Weet veel over pc's",
+      "Zit op de KSA"
+    ],
+    afbeelding: "Fares.jpg.jpg"
+  },
+  {
+    naam: "Bram",
+    geslacht: "Man",
+    woonplaats: ["Kortenberg", "Tervuren"],
+    hobby: ["Jeugdbeweging"],
+    verjaardag: "11/02",
+    schoolrichting: "Natuurwetenschappen",
+    hints: [
+      "Speelde voetbal",
+      "Komt met de fiets of bus naar school",
+      "Heeft een slecht woord in Discord gedropt"
+    ],
+    afbeelding: "Bram.jpg.jpg"
+  },
+  {
+    naam: "Robbe",
+    geslacht: "Man",
+    woonplaats: ["Duisburg"],
+    hobby: ["Parcours", "Jeugdbeweging", "Taekwondo"],
+    verjaardag: "18/07",
+    schoolrichting: "Grafische technieken",
+    hints: [
+      "Zit op de KSA",
+      "Zat op het KAT maar is getransfereerd",
+      "Heeft het lef om op zijn mama te roepen"
+    ],
+    afbeelding: "Robbe.jpg.jpg"
+  },
+  {
+    naam: "Rube",
+    geslacht: "Man",
+    woonplaats: ["Tervuren"],
+    hobby: ["Voetballen", "Lopen", "Fappen"],
+    verjaardag: "11/10",
+    schoolrichting: "Economie",
+    hints: [
+      "Heeft een zus",
+      "Heeft een hete zus",
+      "Speelt bij Tervuren"
+    ],
+    afbeelding: "Rube.jpg.jpg"
+  },
+  {
+    naam: "Roos",
+    geslacht: "Vrouw",
+    woonplaats: ["Duisburg"],
+    hobby: ["Hockey"],
+    verjaardag: "03/12",
+    schoolrichting: "Economie",
+    hints: [
+      "Heeft een broer",
+      "Passieve drinker",
+      "Heeft een kind (Gertie)"
+    ],
+    afbeelding: "Schermafbeelding 2025-10-23 104636.jpg"
+  }
+];
+
 
     let doelPersoon;
     let pogingen = 0;
