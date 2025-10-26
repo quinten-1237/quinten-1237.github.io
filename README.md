@@ -131,6 +131,9 @@
   <p>Gemaakt door <strong>Quinten</strong></p>
   <p style="margin-top: 20px;">Test je kennis van je vrienden en probeer te raden wie het is!</p>
   <button id="startButton">🎮 Start het spel</button>
+  <script>
+  document.getElementById("startButton").addEventListener("click", startSpel);
+    </script>
 </div>
 
 <div id="gameContainer" style="display:none;">
@@ -194,10 +197,7 @@ function updateTimer() {
     `⏱️ Tijd: ${minuten}:${seconden.toString().padStart(2, "0")}`;
 }
 
-function stopTimer() {
-  clearInterval(timerInterval);
-  return Math.floor((new Date() - startTime) / 1000);
-}
+
     const personen = [
   {
     naam: "Billy",
@@ -674,11 +674,16 @@ function stopTimer() {
       "Heeft een kind (Gertie)"
     ],
     afbeelding: "Schermafbeelding 2025-10-23 104636.jpg"
-  }
-];
+  },
+    ];
 
     let doelPersoon = personen[Math.floor(Math.random() * personen.length)];
+    
     let pogingen = 0;
+    let hintIndex = 0;
+    let startTime;
+    let timerInterval;
+    
     // autocomplete lijst opbouwen
     const nameList = document.getElementById("nameList");
     personen.forEach(p => {
@@ -760,6 +765,11 @@ function stopTimer() {
   const totaleTijd = stopTimer();
   const minuten = Math.floor(totaleTijd / 60);
   const seconden = totaleTijd % 60;
+
+  function stopTimer() {
+      clearInterval(timerInterval);
+      return Math.floor((new Date() - startTime) / 1000);
+    }
 
   // Fade-out
   hintText.classList.add("fade");
