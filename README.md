@@ -1,169 +1,203 @@
-<!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+
   <title>Raad de Persoon</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #121212;
-      color: white;
+      background: #111;
+      color: White;
       text-align: center;
-      margin: 0;
-      padding: 0;
+      padding: 20px;
     }
-
-    h1 {
+    table {
+      width: 90%;
+      margin: 0 auto;
+      border-collapse: collapse;
       margin-top: 20px;
     }
-
-    #startScreen {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background: linear-gradient(135deg, #1e1e1e, #333);
-      animation: fadeIn 1.5s ease-in;
+    th, td {
+      border: 1px solid #333;
+      padding: 10px;
     }
-
-    #startButton {
-      padding: 12px 25px;
-      font-size: 18px;
-      background-color: #ffcc00;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: transform 0.2s;
+    th {
+      background: #333;
     }
-
-    #startButton:hover {
-      transform: scale(1.1);
+    .green {
+      background-color: #4CAF50;
     }
-
-    #gameContainer {
-      display: none;
-      animation: fadeIn 1s ease-in;
+    .orange {
+      background-color: #FF9800;
     }
-
-    #timer {
-      font-size: 18px;
-      margin-top: 5px;
-      color: #ffcc00;
+    .red {
+      background-color: #F44336;
     }
-
-    #scoreBar {
-      font-size: 18px;
-      color: #ffcc00;
-      margin-top: 5px;
-      margin-bottom: 10px;
-      animation: fadeIn 0.5s ease-in;
-    }
-
-    #hintText {
-      margin: 20px;
-      font-size: 18px;
-      color: #ffcc00;
-      transition: opacity 0.5s;
-    }
-
-    #hintText.fade {
-      opacity: 0;
-    }
-
-    #leaderboardContainer {
-      display: none;
-      background: rgba(0, 0, 0, 0.8);
-      padding: 20px;
-      border-radius: 20px;
-      width: 350px;
-      text-align: center;
-      margin: 50px auto;
-      color: #fff;
-      animation: fadeIn 1s ease-in;
-    }
-
-    #leaderboardList {
-      list-style: none;
-      padding: 0;
-      text-align: left;
-    }
-
-    #leaderboardList li {
-      margin: 6px 0;
-      padding: 6px 10px;
-      background: #222;
-      border-radius: 10px;
-    }
-
-    #scoreForm input {
-      padding: 8px;
-      border-radius: 8px;
-      border: none;
-      outline: none;
-      width: 60%;
-    }
-
-    #scoreForm button {
-      padding: 8px 10px;
-      border: none;
-      background-color: #ffcc00;
-      color: #000;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    #restartButton {
+    .hint {
       margin-top: 15px;
+      font-weight: bold;
+      color: #ffeb3b;
+      transition: opacity 0.5s ease;
+  opacity: 1;
+}
+.hint.fade {
+  opacity: 0;
+}
+    img {
+      margin-top: 20px;
+      max-width: 200px;
+      border-radius: 10px;
+      display: none;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 250px;
+    }
+    button {
       padding: 10px 15px;
-      background-color: #4caf50;
-      color: white;
-      border: none;
-      border-radius: 8px;
+      font-size: 16px;
+      margin-left: 10px;
       cursor: pointer;
     }
+    /* Startscherm-stijl */
+#startScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: radial-gradient(circle at center, #222 0%, #000 100%);
+  color: white;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+#startScreen h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+#startScreen button {
+  padding: 12px 25px;
+  font-size: 18px;
+  background-color: #ffeb3b;
+  color: #111;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+#startScreen button:hover {
+  background-color: #fdd835;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#timer {
+  font-size: 18px;
+  color: #ffeb3b;
+  margin-top: 10px;
+}
+    datalist {
+      background: black;
+      color: red;
     }
+  datalist {
+    background: black;
+    color: red;
+  }
+      
+  tr {
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  tr.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
   </style>
 </head>
 <body>
+<div id="startScreen">
+  <h1>👤 Welkom bij <span style="color:#ffeb3b;">Wie is het?</span></h1>
+  <p>Gemaakt door <strong>Quinten</strong></p>
+  <p style="margin-top: 20px;">Test je kennis van je vrienden en probeer te raden wie het is!</p>
+  <button id="startButton">🎮 Start het spel</button>
+</div>
 
-  <div id="startScreen">
-    <h1>🎮 Raad de Persoon</h1>
-    <button id="startButton">Start het spel</button>
-  </div>
+<div id="gameContainer" style="display:none;">
+  <h1>🔍 Raad de Persoon</h1>
+   <div id="timer">⏱️ Tijd: 0:00</div>
+  <p>Typ een naam en ontdek via eigenschappen wie het is!</p>
+ 
+  <input id="guessInput" list="nameList" placeholder="Voer een naam in...">
+  <datalist id="nameList"></datalist>
+  <button onclick="checkGuess()">Check</button>
 
-  <div id="gameContainer">
-    <h1>🔍 Raad de Persoon</h1>
-    <div id="timer">⏱️ Tijd: 0:00</div>
-    <div id="scoreBar">🎯 Pogingen: <span id="pogingenDisplay">0</span></div>
+  <div class="hint" id="hintText">Tip verschijnt na  4, 5 en 7 pogingen</div>
+  <img id="personImage" src="" alt="Foto van de persoon">
+  <br>
+  <button onclick="herstartSpel()" style="margin-top: 20px;">🔄 Opnieuw spelen</button>
 
-    <div id="hintText">Typ een naam om te beginnen!</div>
-    <input type="text" id="guessInput" placeholder="Typ hier een naam..." />
-    <button id="guessButton">Raden</button>
-
-    <div id="personImageContainer">
-      <img id="personImage" style="display:none; margin-top:20px; border-radius:10px; max-width:200px;">
-    </div>
-  </div>
-
-  <div id="leaderboardContainer">
-    <h2>🏆 Leaderboard</h2>
-    <form id="scoreForm">
-      <input type="text" id="playerName" placeholder="Jouw naam" required />
-      <button type="submit">💾 Opslaan</button>
-    </form>
-    <ol id="leaderboardList"></ol>
-    <button id="restartButton">🔁 Opnieuw spelen</button>
-  </div>
-
+  <table id="guessTable">
+    <thead>
+      <tr>
+        <th>Naam</th>
+        <th>Geslacht</th>
+        <th>Woonplaats</th>
+        <th>Hobby</th>
+        <th>Verjaardag</th>
+        <th>Schoolrichting</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
   <script>
-    const personen = [
+    document.getElementById("startButton").addEventListener("click", startSpel);
+    
+    function startSpel() {
+      document.getElementById("startScreen").style.display = "none";
+      document.getElementById("gameContainer").style.display = "block";
+      startTimer();
+    }
+  </script>
+    </div>
+  <script>
+    let startTime;
+let timerInterval;
+
+function startSpel() {
+  document.getElementById("startScreen").style.display = "none";
+  document.getElementById("gameContainer").style.display = "block";
+  startTimer();
+}
+
+function startTimer() {
+  startTime = new Date();
+  timerInterval = setInterval(updateTimer, 1000);
+}
+
+function updateTimer() {
+  const now = new Date();
+  const diff = Math.floor((now - startTime) / 1000);
+  const minuten = Math.floor(diff / 60);
+  const seconden = diff % 60;
+  document.getElementById("timer").textContent =
+    `⏱️ Tijd: ${minuten}:${seconden.toString().padStart(2, "0")}`;
+}
+
+function stopTimer() {
+  clearInterval(timerInterval);
+  return Math.floor((new Date() - startTime) / 1000);
+}
     const personen = [
   {
     naam: "Billy",
@@ -643,147 +677,141 @@
   }
 ];
 
-
-    let doelPersoon;
+    let doelPersoon = personen[Math.floor(Math.random() * personen.length)];
     let pogingen = 0;
-    let hintIndex = 0;
-    let startTime;
-    let timerInterval;
+    // autocomplete lijst opbouwen
+    const nameList = document.getElementById("nameList");
+    personen.forEach(p => {
+      const opt = document.createElement("option");
+      opt.value = p.naam;
+      nameList.appendChild(opt);
+    });
 
-    function startSpel() {
-      document.getElementById("startScreen").style.display = "none";
-      document.getElementById("leaderboardContainer").style.display = "none";
-      document.getElementById("gameContainer").style.display = "block";
-
-      doelPersoon = personen[Math.floor(Math.random() * personen.length)];
-      pogingen = 0;
-      hintIndex = 0;
-      document.getElementById("hintText").textContent = "Typ een naam om te beginnen!";
-      document.getElementById("personImage").style.display = "none";
-      document.getElementById("pogingenDisplay").textContent = 0;
-      document.getElementById("guessInput").value = "";
-
-      startTimer();
+    function levenshtein(a, b) {
+      const matrix = Array.from({ length: b.length + 1 }, (_, i) =>
+        Array(a.length + 1).fill(0)
+      );
+      for (let i = 0; i <= b.length; i++) matrix[i][0] = i;
+      for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
+      for (let i = 1; i <= b.length; i++) {
+        for (let j = 1; j <= a.length; j++) {
+          matrix[i][j] = b[i - 1] === a[j - 1]
+            ? matrix[i - 1][j - 1]
+            : Math.min(
+                matrix[i - 1][j - 1] + 1,
+                matrix[i][j - 1] + 1,
+                matrix[i - 1][j] + 1
+              );
+        }
+      }
+      return matrix[b.length][a.length];
     }
 
-    function startTimer() {
-      startTime = new Date();
-      timerInterval = setInterval(updateTimer, 1000);
-    }
+  function vergelijkEigenschap(gegokt, echt) {
+  const naarArray = val => Array.isArray(val) ? val : val.split("/").map(s => s.trim());
+  const normalize = str => str.toLowerCase().trim();
 
-    function updateTimer() {
-      const now = new Date();
-      const diff = Math.floor((now - startTime) / 1000);
-      const minuten = Math.floor(diff / 60);
-      const seconden = diff % 60;
-      document.getElementById("timer").textContent = `⏱️ Tijd: ${minuten}:${seconden.toString().padStart(2, "0")}`;
-    }
 
-    function stopTimer() {
-      clearInterval(timerInterval);
-      return Math.floor((new Date() - startTime) / 1000);
-    }
+  const gegoktArray = naarArray(gegokt).map(normalize);
+  const echtArray = naarArray(echt).map(normalize);
+  // Volledige match
+  if (gegoktArray.length === echtArray.length &&
+      gegoktArray.every(g => echtArray.includes(g))) {
+    return "green";
+  }
 
+  // Gedeeltelijke match
+  const match = gegoktArray.some(g => 
+    echtArray.some(e => e.includes(g) || levenshtein(g, e) <= 2)
+  );
+
+  return match ? "orange" : "red";
+}
     function checkGuess() {
-      const guess = document.getElementById("guessInput").value.trim().toLowerCase();
-      if (!guess) return;
+      const input = document.getElementById("guessInput").value.trim();
+      if (!input) return;
+      const gevonden = personen.find(p => p.naam.toLowerCase() === input.toLowerCase());
+      const tbody = document.querySelector("#guessTable tbody");
 
+      if (!gevonden) {
+        alert("Naam niet gevonden in lijst.");
+        return;
+      }
       pogingen++;
-      document.getElementById("pogingenDisplay").textContent = pogingen;
+      const rij = document.createElement("tr");
+      const eigenschappen = ["geslacht", "woonplaats", "hobby", "verjaardag", "schoolrichting"];
+      const kleuren = eigenschappen.map(eig =>
+        vergelijkEigenschap(gevonden[eig], doelPersoon[eig])
+      );
 
-      const gevonden = personen.find(p => p.naam.toLowerCase() === guess);
-      if (gevonden && gevonden.naam.toLowerCase() === doelPersoon.naam.toLowerCase()) {
-        const hintText = document.getElementById("hintText");
-        const totaleTijd = stopTimer();
-        const minuten = Math.floor(totaleTijd / 60);
-        const seconden = totaleTijd % 60;
+      rij.innerHTML = `
+        <td class="${gevonden.naam.toLowerCase() === doelPersoon.naam.toLowerCase() ? 'green' : 'red'}">${gevonden.naam}</td>
+        ${eigenschappen.map((eig, i) => `
+          <td class="${kleuren[i]}">${gevonden[eig]}</td>
+        `).join("")}
+      `;
 
-        hintText.classList.add("fade");
+      tbody.appendChild(rij);
+      
+      setTimeout(() => rij.classList.add("show"), 50);
+      
+      if (gevonden.naam.toLowerCase() === doelPersoon.naam.toLowerCase()) {
+  const hintText = document.getElementById("hintText");
+  const totaleTijd = stopTimer();
+  const minuten = Math.floor(totaleTijd / 60);
+  const seconden = totaleTijd % 60;
 
-        setTimeout(() => {
-          hintText.textContent = `✅ Juist! Het was ${doelPersoon.naam}! 🎯 Je deed er ${pogingen} pogingen over en ${minuten}:${seconden.toString().padStart(2, "0")} minuten.`;
-          hintText.classList.remove("fade");
-        }, 300);
+  // Fade-out
+  hintText.classList.add("fade");
 
-        toonAfbeelding();
+  setTimeout(() => {
+    hintText.textContent = `✅ Juist! Het was ${doelPersoon.naam}! 
+🎯 Je deed er ${pogingen} pogingen over en ${minuten}:${seconden
+      .toString()
+      .padStart(2, "0")} minuten.`;
+    hintText.classList.remove("fade");
+  }, 300);
 
-        setTimeout(() => toonLeaderboard(totaleTijd, pogingen), 2000);
-      } else {
-        geefHint();
-      }
+  toonAfbeelding();
+} else {
+  geefHint();
+}
+  }
+   function geefHint() {
+  const hintText = document.getElementById("hintText");
+
+  // Fade-out
+  hintText.classList.add("fade");
+
+  setTimeout(() => {
+    if (pogingen === 4) {
+      hintText.textContent = `Hint 1: ${doelPersoon.hints[0]}`;
+    } else if (pogingen === 5) {
+      hintText.textContent = `Hint 2: ${doelPersoon.hints[1]}`;
+    } else if (pogingen === 7) {
+      hintText.textContent = `Laatste Hint: ${doelPersoon.hints[2]}`;
     }
-
-    function geefHint() {
-      const hintText = document.getElementById("hintText");
-      if (hintIndex < doelPersoon.hints.length) {
-        hintText.textContent = "💡 Hint: " + doelPersoon.hints[hintIndex];
-        hintIndex++;
-      } else {
-        hintText.textContent = "😅 Geen hints meer!";
-      }
+    // Fade-in
+    hintText.classList.remove("fade");
+  }, 300); 
+}   
+   img {
+  margin-top: 20px;
+  max-width: 200px;
+  border-radius: 10px;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.6s ease; /* <-- zorgt voor de fade-in */
+}
+img.show {
+  display: block;
+  opacity: 1;
+}
     }
-
-    function toonAfbeelding() {
-      const img = document.getElementById("personImage");
-      img.src = doelPersoon.afbeelding;
-      img.style.display = "block";
+    function herstartSpel() {
+      location.reload();
     }
-
-    // ------------------ LEADERBOARD ------------------
-    function toonLeaderboard(tijd, pogingen) {
-      document.getElementById("gameContainer").style.display = "none";
-      document.getElementById("leaderboardContainer").style.display = "block";
-
-      document.getElementById("scoreForm").dataset.tijd = tijd;
-      document.getElementById("scoreForm").dataset.pogingen = pogingen;
-      updateLeaderboard();
-    }
-
-    function updateLeaderboard() {
-      const leaderboardList = document.getElementById("leaderboardList");
-      leaderboardList.innerHTML = "";
-
-      const scores = JSON.parse(localStorage.getItem("leaderboard")) || [];
-      scores.sort((a, b) => a.tijd - b.tijd)
-        .slice(0, 10)
-        .forEach((score, index) => {
-          const li = document.createElement("li");
-          li.textContent = `${index + 1}. ${score.naam} — ⏱️ ${score.min}:${score.sec.toString().padStart(2, "0")} — 🎯 ${score.pogingen} pogingen`;
-          leaderboardList.appendChild(li);
-        });
-    }
-
-    document.getElementById("scoreForm").addEventListener("submit", (e) => {
-      e.preventDefault();
-      const naam = document.getElementById("playerName").value.trim();
-      if (!naam) return;
-
-      const tijd = parseInt(e.target.dataset.tijd);
-      const pogingen = parseInt(e.target.dataset.pogingen);
-      const min = Math.floor(tijd / 60);
-      const sec = tijd % 60;
-
-      const newScore = { naam, tijd, min, sec, pogingen };
-      const scores = JSON.parse(localStorage.getItem("leaderboard")) || [];
-      scores.push(newScore);
-      localStorage.setItem("leaderboard", JSON.stringify(scores));
-
-      document.getElementById("playerName").value = "";
-      updateLeaderboard();
-    });
-
-    document.getElementById("restartButton").addEventListener("click", () => {
-      document.getElementById("leaderboardContainer").style.display = "none";
-      document.getElementById("startScreen").style.display = "flex";
-    });
-
-    // ------------------ EVENT LISTENERS ------------------
     document.getElementById("startButton").addEventListener("click", startSpel);
-    document.getElementById("guessButton").addEventListener("click", checkGuess);
-    document.getElementById("guessInput").addEventListener("keypress", (e) => {
-      if (e.key === "Enter") checkGuess();
-    });
   </script>
 </body>
 </html>
-
