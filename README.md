@@ -112,7 +112,7 @@
       width: 80%;
       margin: 30px auto;
     }
-    #leaderboard h2 { color: #ffcc00; }
+    #leaderboard h2 { color: black; }
     #leaderboard table { width: 100%; color: white; }
     #leaderboard th { background: #333; }
     #leaderboard td { border: 1px solid #444; padding: 8px; }
@@ -128,7 +128,7 @@
   </div>
 
   <!-- SPEL -->
-  <div id="gameContainer">
+  <div id="gameContainer" style="display:none;">
     <div id="timer">⏱️ Tijd: 0:00</div>
     <h1>🔍 Raad de Persoon</h1>
     <p>Typ een naam en ontdek via eigenschappen wie het is!</p>
@@ -769,6 +769,22 @@
       localStorage.setItem("leaderboard", JSON.stringify(data));
       laadLeaderboard();
     }
+    document.getElementById("startButton").addEventListener("click", startSpel);
+
+function startSpel() {
+  // verberg het startscherm
+  document.getElementById("startScreen").style.display = "none";
+  // toon het spel
+  document.getElementById("gameContainer").style.display = "block";
+
+  // eventueel: timer starten of variabelen resetten
+  startTimer();
+  console.log("Spel gestart!");
+}
+
+function startTimer() {
+  // testfunctie om te zien of start werkt
+  console.log("Timer gestart!");
   </script>
 </body>
 </html>
